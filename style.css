@@ -2733,14 +2733,14 @@ img,
 }
 
 @media (max-width: 420px) {
-    .section-one {
+    /* .section-one {
         height: 430px;
     background-image: url("./images/Section-one/380.svg");
-    }
+    } */
     
         .section-one .field-container {
         width: auto;
-        /* margin-bottom: 30px; */
+        margin-bottom: 10px;
     }
 }
 
