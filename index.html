@@ -23,14 +23,14 @@
           <img src="./icons/logo.svg" alt="">
         </h1>
         <ul>
-          <li class="secondary-bold-font"><a href="./index.html" class="secondary-color">
+          <li class="secondary-bold-font"><a href="#section-four" class="secondary-color">
               <p class="twenty-medium">About Us</p>
             </a></li>
-          <li class="twenty-medium"><a href="./service.html" class="secondary-color">
-              <p class="twenty-medium">Service</p>
+          <li class="twenty-medium"><a href="#services-header-wrap" class="secondary-color">
+              <p class="twenty-medium">Categories</p>
             </a></li>
-          <li class="twenty-medium"><a href="./price-plan.html" class="secondary-color">
-              <p class="twenty-medium">Price Plan</p>
+          <li class="twenty-medium"><a href="#section-four" class="secondary-color">
+              <p class="twenty-medium">How it works</p>
             </a>
           </li>
         </ul>
@@ -42,121 +42,166 @@
           <!-- <button class="one secondary-color-bg primary-color">
             <p class="fourteen-regular">ENG</p>
           </button> -->
-          <button class="two secondary-color-bg primary-color">
+          <!-- <button class="two secondary-color-bg primary-color">
             <p class="eighteen-medium">Register Now</p>
+          </button> -->
+
+          <button class="animated-btn">
+            <a href="#inputfield"><p class="btn-text eighteen-medium">Register Now</p></a>
           </button>
+
         </div>
       </nav>
     </header>
 
     <section class="section-one">
       <div class="field-container">
-        <p class="twenty-two-semi-bold">Share your need. Choose the right expert. See it finished.</p  >
+        <p class="twenty-two-semi-bold">
+          Share your need. Choose the right expert. See it finished.
+        </p>
         <div class="toggle-container">
           <input type="checkbox" id="toggleSwitch" class="toggle-input" />
           <label for="toggleSwitch" class="toggle-label">
             <span class="toggle-text left">Employer</span>
-            <span class="toggle-slider">
-              <!-- <img src="./images/Toggle.svg" alt="Toggle knob" class="toggle-icon" /> -->
-            </span>
+            <span class="toggle-slider"></span>
             <span class="toggle-text right">Tasker</span>
           </label>
         </div>
+
         <div class="field-container-two">
-          <div class="input-field">
+          <div class="input-field" id="inputfield">
             <div class="enter-your-email-to-wrapper .twenty-regular">
-              <input class="enter-your-email-to" placeholder="Enter your email to join the waitlist" type="email" />
+              <input id="waitlistInput" class="enter-your-email-to" placeholder="Enter your email to join the waitlist"
+                type="email" />
             </div>
           </div>
           <div class="button secondary-color-bg">
-            <div class="button-text primary-color"><p class=".eighteen-medium">Register Now</p></div>
+            <div class="button-text primary-color">
+              <p class=".eighteen-medium">Join the Waitlist</p>
+            </div>
           </div>
         </div>
-        <h1 class="twenty-two-semi-bold">Join 100+ early users who’ve already signed up.</h1>
+
+        <h1 class="twenty-two-semi-bold">
+          Join 100+ early users who’ve already signed up.
+        </h1>
       </div>
+      <!-- ✅ Thank You Popup (Hidden by default) -->
+<div class="thankyou-popup" id="thankyouPopup">
+  <div class="thankyou-content">
+    <div class="thankyou-icon">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <p class="thankyou-text">Thank you for joining the waitlist!</p>
+  </div>
+</div>
+
     </section>
 
-    <section class="section-two">
-      <div class="container-one">
-        <img src="./images/Section-two/one.png" alt="">
-        <h1 class="fourty-two-bold">100+</h1>
-        <h1 class="thirty-four-regular">Waitlist Registered </h1>
-      </div>
-      <div class="container-two">
-        <img src="./images/Section-two/two.png" alt="">
-        <h1 class="fourty-two-bold">3+</h1>
-        <h1 class="thirty-four-regular">Languages </h1>
-      </div>
-      <div class="container-three">
-        <img src="./images/Section-two/three.png" alt="">
-        <h1 class="fourty-two-bold">50+</h1>
-        <h2 class="thirty-four-regular">Service Categories </h2>
-      </div>
-    </section>
+
+
+<section class="section-two">
+  <div class="container-one">
+    <img src="./images/Section-two/one.png" alt="">
+    <h1 class="fourty-two-bold reveal-text">100+</h1>
+    <h1 class="thirty-four-regular reveal-text">Waitlist Registered</h1>
+  </div>
+  <div class="container-two">
+    <img src="./images/Section-two/two.png" alt="">
+    <h1 class="fourty-two-bold reveal-text">3+</h1>
+    <h1 class="thirty-four-regular reveal-text">Languages</h1>
+  </div>
+  <div class="container-three">
+    <img src="./images/Section-two/three.png" alt="">
+    <h1 class="fourty-two-bold reveal-text">50+</h1>
+    <h2 class="thirty-four-regular reveal-text">Service Categories</h2>
+  </div>
+</section>
+
 
     <section class="section-three">
-
-    </section>
-
-    <section class="section-four" id="">
-      <div class="left-container">
-        <img src="./images/Section-four/one.png" alt="">
-      </div>
-      <div class="right-container">
-        <div class="container-one">
-          <p class="fifty-semi-bold">Frogr helps you complete tasks in just four easy steps.</p>
-        </div>
-        <div class="container-two">
-          <div class="first">
-            <div class="icon">
-              <img src="./icons/browse.svg" alt="">
-            </div>
-            <div class="text">
-              <h1 class="twenty-medium">Browse</h1>
-              <h1 class="twenty-regular">Browse local gigs that match your skills and schedule. Every listing is
-                verified so you can apply confidently.</h1>
-            </div>
-          </div>
-          <div class="second">
-            <div class="icon">
-              <img src="./icons/bidding.svg" alt="">
-            </div>
-            <div class="text">
-              <h1 class="twenty-medium">Bidding</h1>
-              <h1 class="twenty-regular">Place your bid, review project details, and agree on requirements and payment
-                terms.</h1>
-            </div>
-          </div>
-          <div class="third">
-            <div class="icon">
-              <img src="./icons/book.svg" alt="">
-            </div>
-            <div class="text">
-              <h1 class="twenty-medium">Book</h1>
-              <h1 class="twenty-regular">Choose a gig, review details, confirm requirements and payment terms. The
-                process is quick and transparent.</h1>
-            </div>
-          </div>
-          <div class="fourth">
-            <div class="icon">
-              <img src="./icons/earn.svg" alt="">
-            </div>
-            <div class="text">
-              <h1 class="twenty-medium">Earn</h1>
-              <h1 class="twenty-regular">Complete the job and receive secure, same-day payments. No hidden fees, no
-                delays.</h1>
-            </div>
-          </div>
-
+      <div class="banner-container">
+        <div class="banner-text">
+          <h2 class="">Post a task in 60 Seconds</h2>
+          <p class="">
+            No app download needed. Start right from your browser.
+          </p>
+          <p class="">
+            Create tasks easily and share them with others. Choose the right people to get the job done!
+          </p>
         </div>
       </div>
     </section>
+
+
+    <section class="section-four" id="section-four">
+  <div class="left-container">
+    <img src="./images/Section-four/one.png" alt="">
+  </div>
+
+  <div class="right-container">
+    <div class="container-one">
+      <p class="fifty-semi-bold reveal-text">Frogr helps you complete tasks in just four easy steps.</p>
+    </div>
+
+    <div class="container-two">
+      <div class="first">
+        <div class="icon">
+          <img src="./icons/browse.svg" alt="">
+        </div>
+        <div class="text reveal-text">
+          <h1 class="twenty-medium">Browse</h1>
+          <h1 class="twenty-regular">
+            Browse local gigs that match your skills and schedule. Every listing is verified so you can apply confidently.
+          </h1>
+        </div>
+      </div>
+
+      <div class="second">
+        <div class="icon">
+          <img src="./icons/bidding.svg" alt="">
+        </div>
+        <div class="text reveal-text">
+          <h1 class="twenty-medium">Bidding</h1>
+          <h1 class="twenty-regular">
+            Place your bid, review project details, and agree on requirements and payment terms.
+          </h1>
+        </div>
+      </div>
+
+      <div class="third">
+        <div class="icon">
+          <img src="./icons/book.svg" alt="">
+        </div>
+        <div class="text reveal-text">
+          <h1 class="twenty-medium">Book</h1>
+          <h1 class="twenty-regular">
+            Choose a gig, review details, confirm requirements and payment terms. The process is quick and transparent.
+          </h1>
+        </div>
+      </div>
+
+      <div class="fourth">
+        <div class="icon">
+          <img src="./icons/earn.svg" alt="">
+        </div>
+        <div class="text reveal-text">
+          <h1 class="twenty-medium">Earn</h1>
+          <h1 class="twenty-regular">
+            Complete the job and receive secure, same-day payments. No hidden fees, no delays.
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <section class="section-five">
       <div class="left-container">
         <div class="container-one">
           <p class="fifty-semi-bold">Empowering Workers with Smart Tools</p>
-          <p class="twenty-four-medium">Powered by frogr AI making work simpler for everyone.</p>
+          <p class="twenty-four-medium">Powered by frogr AI — making work simpler for everyone.</p>
         </div>
         <div class="container-two">
           <div class="first">
@@ -206,7 +251,7 @@
 
 
     <!-- Title (no background) -->
-    <section class="services-header-wrap">
+    <section class="services-header-wrap" id="services-header-wrap">
       <div class="services-header-inner">
         <h2 class="services-title">Most Popular Categories</h2>
         <p class="services-sub">These are the categories tasks available for you to choose from.</p>
@@ -427,7 +472,7 @@
             </div>
             <div class="text">
               <!-- <h1 class="twenty-medium">Book</h1> -->
-              <h1 class="twenty-regular">Boost your income work when you want, how you want.</h1>
+              <h1 class="twenty-regular">Boost your income with flexible work hours</h1>
             </div>
           </div>
           <!-- <div class="fourth">
@@ -444,12 +489,13 @@
       </div>
     </section>
 
-    <section class="verified-taskers">
+    <section class="verified-taskers" id="verified-taskers">
       <div class="container">
 
         <header class="vt-header">
           <h2 class="vt-title fourty-two-bold">Reliable &amp; Verified Taskers</h2>
-          <p class="vt-sub twenty-four-medium">Your safety and satisfaction are our top priorities. Every tasker on our platform goes
+          <p class="vt-sub twenty-four-medium">Your safety and satisfaction are our top priorities. Every tasker on our
+            platform goes
             through our rigorous three-step verification process.</p>
         </header>
 
@@ -460,9 +506,10 @@
             <div class="vt-illustration" role="img" aria-hidden="true"></div>
             <div class="vt-body">
               <h3 class="vt1-title">KYC ID Verification</h3>
-              <p class="twenty-regular">Every tasker goes through comprehensive identity verification including government ID, address proof,
+              <p class="twenty-regular">Every tasker goes through comprehensive identity verification including
+                government ID, address proof,
                 and background checks.</p>
-              <p class="vt-note">Verification powered by Frogr Secure™ system.</p>
+              <p class="vt-note">Verification powered by frogr Secure™ system.</p>
             </div>
           </article>
 
@@ -471,7 +518,8 @@
             <div class="vt-illustration" role="img" aria-hidden="true"></div>
             <div class="vt-body">
               <h3 id="vt2-title">Customer Reviews / Ranking</h3>
-              <p class="twenty-regular">Our smart ranking algorithm considers customer reviews, ratings, and feedback to ensure you get the
+              <p class="twenty-regular">Our smart ranking algorithm considers customer reviews, ratings, and feedback to
+                ensure you get the
                 best taskers.</p>
               <p class="vt-note">Top rated workers list</p>
             </div>
@@ -482,7 +530,8 @@
             <div class="vt-illustration" role="img" aria-hidden="true"></div>
             <div class="vt-body">
               <h3 id="vt3-title">Secure Wallet Gateway Payment</h3>
-              <p class="twenty-regular">Funds are held in escrow and released only after both sides confirm task completion.</p>
+              <p class="twenty-regular">Funds are held in escrow and released only after both sides confirm task
+                completion.</p>
               <p class="vt-note"></p>
             </div>
           </article>
@@ -492,12 +541,65 @@
             <div class="vt-illustration" role="img" aria-hidden="true"></div>
             <div class="vt-body">
               <h3 id="vt4-title">Insurance Covered for Taskers</h3>
-              <p class="twenty-regular">Automatic accident and liability coverage ensures every task is protected for peace of mind.</p>
+              <p class="twenty-regular">Automatic accident and liability coverage ensures every task is protected for
+                peace of mind.</p>
               <p class="vt-note"></p>
             </div>
           </article>
 
         </div>
+      </div>
+    </section>
+
+    <section class="section-nine" id="section-nine">
+      <div class="left-container">
+        <div class="container-one">
+          <p class="fifty-semi-bold">Quick Dispute bullets</p>
+          <p class="twenty-four-medium">Powered by frogr AI making work simpler for everyone.</p>
+        </div>
+        <div class="container-two">
+          <div class="first">
+            <div class="icon">
+              <img src="./icons/star.svg" alt="">
+            </div>
+            <div class="text">
+              <!-- <h1 class="twenty-medium">Break language barriers with real-time AI support.</h1> -->
+              <h1 class="twenty-regular">24/7 dispute support — AI-assisted + human review.</h1>
+            </div>
+          </div>
+          <div class="second">
+            <div class="icon">
+              <img src="./icons/wallet.svg" alt="">
+            </div>
+            <div class="text">
+              <!-- <h1 class="twenty-medium">Bidding</h1> -->
+              <h1 class="twenty-regular">Instant refunds using secure payment methods.</h1>
+            </div>
+          </div>
+          <div class="third">
+            <div class="icon">
+              <img src="./icons/peace.svg" alt="">
+            </div>
+            <div class="text">
+              <!-- <h1 class="twenty-medium">Book</h1> -->
+              <h1 class="twenty-regular">Peace of mind — your transactions are protected every step of the way.</h1>
+            </div>
+          </div>
+          <!-- <div class="fourth">
+                        <div class="icon">
+                            <img src="./icons/earn.svg" alt="">
+                        </div>
+                        <div class="text">
+                            <h1 class="twenty-medium">Earn</h1>
+                            <h1 class="twenty-regular">Complete the job and receive secure, same-day payments. No hidden fees, no delays.</h1>
+                        </div>
+                    </div> -->
+
+
+        </div>
+      </div>
+      <div class="right-container">
+        <img src="./images/Section-nine/right.png" alt="">
       </div>
     </section>
 
@@ -553,8 +655,13 @@
               <p>Payments are held in escrow and released to the tasker only after you confirm completion.</p>
             </div>
           </details>
+          <button class="button button-text primary-color">
+            <a href="#inputfield"><p class="btn-text eighteen-medium">Join the Waitlist</p></a>
+          </button>
         </div>
+        
       </div>
+      
     </section>
 
     <!-- ✅ Footer Section -->
@@ -562,28 +669,29 @@
       <div class="footer-container">
         <div class="footer-brand">
           <img src="./icons/white-logo.svg" alt="frogr logo" class="footer-logo" />
-          <div class="footer-languages">3+ Languages</div>
+          <div class="footer-languages">Data Secured • Government KYC Verified • Instant Payouts.</div>
           <p class="footer-desc">
             Empowering people to work freely and get things done faster.<br />
             From daily tasks to skilled projects — Frogr connects trusted workers with real opportunities.<br />
             No Shift. No Boss. No Limit.
           </p>
-          <small class="copyright">© 2025 Metfrogr. All rights reserved. Made with ❤️ in India</small>
+          <small class="copyright">© 2025 Metfrogr Technologies Pvt. Ltd. <br> Made with ❤️ in India</small>
         </div>
         <div class="footer-links">
           <div class="col">
             <h4><a href=""></a>About us</h4>
             <ul>
-              <li><a href="#">Privacy policy</a></li>
-              <li><a href="#">Terms of service</a></li>
+              <!-- in your footer -->
+              <li><a href="#" data-modal="privacy">Privacy policy</a></li>
+              <li><a href="#" data-modal="terms">Terms of service</a></li>
             </ul>
           </div>
           <div class="col">
             <h4>Help docs</h4>
             <ul>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">Support</a></li>
-              <li><a href="#">Verification</a></li>
+              <li><a href="#section-four">Features</a></li>
+              <li><a href="#section-nine">Support</a></li>
+              <li><a href="#verified-taskers">Verification</a></li>
             </ul>
           </div>
           <div class="col">
@@ -598,11 +706,98 @@
         </div>
       </div>
     </footer>
+<!-- Modal overlay & container (hidden by default) -->
+<div id="policyModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal-box" role="document" aria-labelledby="modalTitle">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <div id="modalContent" class="modal-content">
+      <!-- Content injected by JS -->
+    </div>
+  </div>
+</div>
 
 
 
 
   </section>
+
+<!-- footer js start -->
+ <script>
+  (function () {
+    const modal = document.getElementById('policyModal');
+    const content = document.getElementById('modalContent');
+    const closeBtn = modal.querySelector('.modal-close');
+
+    // content for each link (replace with your full legal text or fetch it)
+    const modalTexts = {
+      privacy: `
+        <h2 id="modalTitle">Privacy Policy</h2>
+        <p>This is the Privacy Policy. Replace this with your full privacy policy text.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+      `,
+      terms: `
+        <h2 id="modalTitle">Terms of Service</h2>
+        <p>This is the Terms of Service. Replace this with your full terms text.</p>
+        <p>By using this site you agree to the following terms... (etc.)</p>
+      `
+    };
+
+    // open modal with given key
+    function openModal(key) {
+      content.innerHTML = modalTexts[key] || '<p>No content available.</p>';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      // focus for accessibility
+      closeBtn.focus();
+      // prevent page scroll
+      document.documentElement.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      document.documentElement.style.overflow = '';
+    }
+
+    // attach listeners to links with data-modal
+    document.querySelectorAll('a[data-modal]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        const key = this.getAttribute('data-modal');
+        openModal(key);
+      });
+    });
+
+    // close actions
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal(); // click on overlay
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  })();
+</script>
+
+<!-- footer js end -->
+
+<!-- registration js start -->
+<script>
+  // Select button and popup
+  const registerButton = document.querySelector(".section-one .button");
+  const thankyouPopup = document.getElementById("thankyouPopup");
+
+  // Show popup when button clicked
+  registerButton.addEventListener("click", () => {
+    thankyouPopup.classList.add("active");
+    
+    // Auto close after 3 seconds
+    setTimeout(() => {
+      thankyouPopup.classList.remove("active");
+    }, 3000);
+  });
+</script>
+  <!-- registration js end -->
 
 </body>
 
