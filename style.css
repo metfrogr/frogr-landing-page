@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
 
 * {
     padding: 0px;
@@ -437,7 +440,7 @@ nav .button-container .two:hover {
     background-color: #FFD02D;
     background-image: url("./images/Section-one/one.svg");
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     padding-left: 7%;
     padding-right: 7%;
@@ -446,7 +449,7 @@ nav .button-container .two:hover {
 
 @media (min-width: 1440px){
     .section-one{
-        height: 800px;
+        height: 881px;
     }
 }
 
@@ -462,6 +465,38 @@ nav .button-container .two:hover {
     margin-bottom: 43px;
 }
 
+.section-one .submit-btn {
+    background-color: #000;
+    color: #ffd02d;
+    border: none;
+    border-radius: 28px;
+    padding: 12px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-width: 180px;
+}
+
+.section-one .submit-btn a{
+    text-decoration: none;
+    color: #ffd02d;
+}
+
+.section-one .submit-btn:hover {
+    background-color: #1f2937;
+    transform: scale(1.05);
+}
+
+.section-one .submit-btn:active {
+    transform: scale(0.98);
+}
+
+.section-one .submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
 
 .toggle-label {
@@ -522,9 +557,9 @@ nav .button-container .two:hover {
       justify-content: center;
       gap: 20px;
       text-align: center;
-    padding: 50px;
-    margin-top: 80px;
-    background-color: #FFD02C;
+    /* padding: 50px; */
+    /* margin-top: 80px; */
+    /* background-color: #FFD02C; */
   }
 
   /* --- Card Container Background --- */
@@ -538,7 +573,7 @@ nav .button-container .two:hover {
     background: #ffffff;
     border-radius: 16px;
     box-shadow: 0 6px 16px rgba(255, 213, 0, 0.15); /* soft yellow shadow */
-    padding: 32px 16px;
+    padding: 32px   ;
   }
 
   /* --- Input Field Styling (Yellow Border) --- */
@@ -666,12 +701,13 @@ nav .button-container .two:hover {
 
   /* ======= ADDED (only layout for the form row & radios so design stays identical) ======= */
   .form-row {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 18px; /* space between radio group, input and button */
     flex-wrap: nowrap;
-    margin-top: 18px;
+    /* margin-top: 18px; */
   }
 
   .radio-group {
@@ -740,14 +776,17 @@ nav .button-container .two:hover {
       width: 100%;
       max-width: 48rem;
       margin: 0 auto;
-      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      /* padding: 1rem; */
     }
     
     .toggle-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.5rem;
+      /* margin-bottom: 1.5rem; */
     }
     
     .toggle-container {
@@ -793,13 +832,13 @@ nav .button-container .two:hover {
     .form-input {
       font-family: 'Open Sans', sans-serif;
       color: #000;
-      font-size: 15px;
+      font-size: 14px;
       width: 100%;
-      max-width: 350px;
+      /* width: 280px; */
       background: #fff;
       border: 1px solid #d1d5db;
       border-radius: 9999px;
-      padding: 0.75rem 1.25rem;
+      padding: 0.75rem 0.5rem;
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       outline: none;
     }
@@ -1837,7 +1876,7 @@ body {
 /* ---------- SCROLLING AREA (yellow) ---------- */
 .services-auto-section {
     background: #ffd02c;
-    padding: 16px;
+    padding: 40px 16px;
 }
 
 .services-auto-inner {
@@ -1845,22 +1884,25 @@ body {
     margin: 0 auto;
 }
 
+
+/* Viewport: shows 2 rows (6 cards visible at a time in 3-column grid) */
 .services-viewport {
     width: 100%;
-    /* height: 300px; */
+    /* Show 2 rows: 2 × card height + 1 gap between them */
+    height: calc((var(--scroll-card-height) * 3) + var(--scroll-gap));
     overflow: hidden;
-    height: calc(var(--scroll-card-height) * 3 + var(--scroll-gap));
+    position: relative;
     box-sizing: border-box;
 }
 
 /* 🔥 Faster scroll (was 5s → now 2.5s for smoother speed) */
 .services-track {
     display: flex;
-    align-items: center;
     flex-direction: column;
     gap: var(--track-gap);
     will-change: transform;
-    animation: track-scroll 2.5s linear infinite;
+    /* Smooth 40-second loop animation */
+    animation: track-scroll-vertical 40s linear infinite;
 }
 
 .grid-set {
@@ -1877,8 +1919,6 @@ body {
         grid-template-columns: repeat(2, var(--card-fixed-w));
         justify-content: center;
     }
-
-
 }
 
 @media (min-width: 1440px) {
@@ -1887,7 +1927,6 @@ body {
         justify-content: center;
     }
 }
-
 /* keep card layout intact */
 .services-viewport .card {
     display: flex;
@@ -1903,6 +1942,12 @@ body {
     width: 100%;
     max-width: var(--card-fixed-w);
     min-height: var(--scroll-card-height);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-viewport .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .services-viewport .card-thumb {
@@ -1912,6 +1957,14 @@ body {
     overflow: hidden;
     background: #eee;
 }
+
+.services-viewport .card-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 
 .services-viewport .card-thumb img {
     width: 100%;
@@ -1925,13 +1978,21 @@ body {
 }
 
 /* same direction scrolling */
-@keyframes track-scroll {
-    from {
-        transform: translateY(0%);
+/* Change this keyframe animation */
+@keyframes track-scroll-vertical {
+    0% {
+        transform: translateY(0);
     }
+    100% {
+        /* Move up by: (4 rows × card height) + (3 gaps between rows) + track gap */
+        transform: translateY(calc(-1 * ((var(--scroll-card-height) * 4) + (var(--scroll-gap) * 3) + var(--track-gap))));
+    }
+}
 
-    to {
-        transform: translateY(-50%);
+/* Accessibility: respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .services-track {
+        animation: none !important;
     }
 }
 
@@ -2305,7 +2366,7 @@ body {
     height: auto;
     display: flex;
     text-align: start;
-    justify-content: start;
+    justify-content: center;
     align-items: start;
     padding-top: 8px;
 }
@@ -2778,16 +2839,22 @@ body {
 @media (max-width: 1118px) {
     .section-one {
         height: 520px;
-        padding: 48px 16px;
+        padding: 22px 16px;
         /* align-items: center; */
         /* background-image: url("./images/Section-one/tab.svg"); */
+    }
+
+    .section-one .submit-btn {
+        padding: 12px 28px;
+        font-size: 16px;
+        min-width: 160px;
     }
 }
 
 @media (max-width: 768px) {
     .section-one {
         height: 450px;
-        padding: 48px 16px;
+        padding: 0px 16px;
         /* align-items: center; */
         /* background-image: url("./images/Section-one/tab.svg"); */
     }
@@ -2796,7 +2863,14 @@ body {
         /* flex-direction: column; */
         /* gap: 12px; */
         /* align-items: stretch; */
-        margin-bottom: -20px;
+        margin-bottom: 20px;
+    }
+
+    .section-one .submit-btn {
+        padding: 11px 24px;
+        font-size: 15px;
+        min-width: 140px;
+        width: auto;
     }
 
     .section-one .input-field {
@@ -3381,7 +3455,14 @@ body {
 
     .section-one .field-container {
         gap: 15px;
-        margin-bottom: px;
+        margin-bottom: 15px;
+    }
+
+    .section-one .submit-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 120px;
+        width: auto;
     }
 
     .section-one .enter-your-email-to-wrapper {
@@ -3469,6 +3550,11 @@ body {
         font-size: 12px;
     }
 
+    .section-one{
+        background-size: contain;
+        background-position: top;
+    }
+
     .section-one .field-container-two {
         flex-direction: column;
     }
@@ -3484,13 +3570,21 @@ body {
         /* background-image: url("./images/Section-one/mobile.svg"); */
     }
 
-    .section-one .field-container p{
+    /* .section-one .field-container p{
         font-size: 18px;
-    }
+    } */
 
     .section-one .field-container {
         width: auto;
-        margin-bottom: -14px;
+        margin-bottom: 14px;
+    }
+
+    .section-one .submit-btn {
+        padding: 10px 18px;
+        font-size: 13px;
+        min-width: 110px;
+        /* width: 90%; */
+        max-width: 300px;
     }
 
     .vt-card {
@@ -3506,7 +3600,15 @@ body {
 
     .section-one .field-container {
         width: auto;
-        margin-bottom: -20px;
+        margin-bottom: 20px;
+    }
+
+    .section-one .submit-btn {
+        padding: 9px 16px;
+        font-size: 12px;
+        min-width: 100px;
+        /* width: 85%; */
+        max-width: 280px;
     }
 }
 

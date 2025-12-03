@@ -72,7 +72,7 @@
 
           <button class="animated-btn">
             <a href="#contactinput">
-              <p class="btn-text eighteen-medium">Join the Waitlist</p>
+              <p class="btn-text eighteen-medium">Join Waitlist</p>
             </a>
           </button>
 
@@ -82,12 +82,21 @@
 
     <section class="section-one">
 
-      <div class="field-container">
-        <p class="fourty-two-medium">
-          No Boss. No Shift. No Limit.
-        </p>
+      <div class="section-one-container">
+        <div class="field-container">
+          <p class="thirty-six-medium">
+            No Boss. No Shift. No Limit.
+          </p>
+        </div>
+
+        <div class="field-container">
+          <button type="submit" class="submit-btn">
+            <a href="#contactinput">
+              <p>Join Frogr Now</p>
+            </a>
+          </button>
+        </div>
       </div>
-      
       <!-- ✅ Thank You Popup (Hidden by default) -->
       <!-- <div class="thankyou-popup" id="thankyouPopup">
         <div class="thankyou-content">
@@ -134,36 +143,36 @@
             No app download needed. Start right from your browser.
           </p>
           <p class="twenty-four-medium">
-            Post your task. Get bids. Choose the right person 
+            Post your task. Get bids. Choose the right person
           </p>
         </div>
       </div>
     </section>
 
-<!-- registration start  -->
-<div class="registration-section" id="contactinput">
-  <section class="toggle-section">
-    <div class="field-container">
-      <h1 class="thirty-two-semi-bold">
-        Enter your details to join waitlist
-      </h1>
-      <p>Be among the first to experience India’s gig jobs platform. Get early access and exclusive benefits when we
-        launch.</p>
+    <!-- registration start  -->
+    <div class="registration-section" id="contactinput">
+      <section class="toggle-section">
+        <div class="field-container">
+          <h1 class="thirty-two-semi-bold">
+            Enter your details to join waitlist
+          </h1>
+          <p>Be among the first to experience India’s gig jobs platform. Get early access and exclusive benefits when we
+            launch.</p>
 
-      <div class="waitlist-container">
-        <!-- Toggle Switch -->
-        <div class="toggle-wrapper">
-          <div class="toggle-container">
-            <button type="button" class="toggle-btn active" id="employerBtn">
-              Employer
-            </button>
-            <button type="button" class="toggle-btn" id="taskerBtn">
-              Tasker
-            </button>
-          </div>
-        </div>
-<div class="radio-button">
-                <div class="radio-group" role="radiogroup" aria-label="Input type">
+          <div class="waitlist-container">
+            <!-- Toggle Switch -->
+            <div class="toggle-wrapper">
+              <div class="toggle-container">
+                <button type="button" class="toggle-btn active" id="employerBtn">
+                  Employer
+                </button>
+                <button type="button" class="toggle-btn" id="taskerBtn">
+                  Tasker
+                </button>
+              </div>
+            </div>
+            <div class="radio-button">
+              <div class="radio-group" role="radiogroup" aria-label="Input type">
                 <label class="radio-label">
                   <input type="radio" name="inputType" value="email" id="emailRadio" checked />
                   <span class="radio-text">Email ID</span>
@@ -173,246 +182,241 @@
                   <span class="radio-text">Mobile Number</span>
                 </label>
               </div>
-</div>
-        <!-- Form -->
-        <div id="formContainer">
-          <form class="form-wrapper" id="waitlistForm">
-            <!-- Inline row: radio group + input + button -->
-            <div class="form-row">
-              <!-- Radio Buttons (Email or Mobile) -->
-
-
-              <!-- Email Input (shown by default) -->
-              <input
-                type="email"
-                id="emailInput"
-                class="form-input"
-                placeholder="Enter your email to join waitlist"
-              />
-
-              <!-- Phone Input (hidden by default) -->
-              <input
-                type="tel"
-                id="phoneInput"
-                class="form-input hidden"
-                placeholder="Enter your 10-digit mobile number"
-                pattern="\d{10}"
-              />
-
-              <button type="submit" class="submit-btn" id="submitBtn">
-                Join Waitlist
-              </button>
             </div>
-          </form>
+            <!-- Form -->
+            <div id="formContainer">
+              <form class="form-wrapper" id="waitlistForm">
+                <!-- Inline row: radio group + input + button -->
+                <div class="form-row">
+                  <!-- Radio Buttons (Email or Mobile) -->
+
+
+                  <!-- Email Input (shown by default) -->
+                  <input type="email" id="emailInput" class="form-input"
+                    placeholder="Enter your email to join waitlist" />
+
+                  <!-- Phone Input (hidden by default) -->
+                  <input type="tel" id="phoneInput" class="form-input hidden"
+                    placeholder="Enter your 10-digit mobile number" pattern="\d{10}" />
+
+                  <button type="submit" class="submit-btn" id="submitBtn">
+                    Join Waitlist
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="message hidden">
+              <p class="message-text success">Thanks! We'll be in touch!</p>
+              <button type="button" class="back-btn" id="backBtn">← Back</button>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="message hidden">
+              <p class="message-text error" id="errorText">Oops! Something went wrong, please try again</p>
+              <button type="button" class="back-btn" id="errorBackBtn">← Back</button>
+            </div>
+          </div>
+
+          <p>
+            Join India’s first instant gig jobs network. Over 100 early users already onboard secure your spot today.
+            </h1>
+
+            <!-- <h1 class="eighteen-regular">
+                Over 100 early users already onboard secure your spot today.
+      </h1> -->
+
         </div>
 
-        <!-- Success Message -->
-        <div id="successMessage" class="message hidden">
-          <p class="message-text success">Thanks! We'll be in touch!</p>
-          <button type="button" class="back-btn" id="backBtn">← Back</button>
-        </div>
+        <script>
+          // Configuration
+          const LOOPS_FORM_ID = 'cmgrgqh7e7xbx030in9jo5vx9';
+          const LOOPS_API_URL = `https://app.loops.so/api/newsletter-form/${LOOPS_FORM_ID}`;
 
-        <!-- Error Message -->
-        <div id="errorMessage" class="message hidden">
-          <p class="message-text error" id="errorText">Oops! Something went wrong, please try again</p>
-          <button type="button" class="back-btn" id="errorBackBtn">← Back</button>
-        </div>
-      </div>
+          // State
+          let userType = 'Employer'; // 'Employer' or 'Tasker'
+          let isLoading = false;
 
-      <h1 class="eighteen-medium">
-        Join India’s first instant gig jobs network. <br>
-        Over 100 early users already onboard secure your spot today.
-      </h1>
-    </div>
+          // DOM Elements
+          const employerBtn = document.getElementById('employerBtn');
+          const taskerBtn = document.getElementById('taskerBtn');
+          const emailInput = document.getElementById('emailInput');
+          const phoneInput = document.getElementById('phoneInput');
+          const submitBtn = document.getElementById('submitBtn');
+          const formContainer = document.getElementById('formContainer');
+          const successMessage = document.getElementById('successMessage');
+          const errorMessage = document.getElementById('errorMessage');
+          const errorText = document.getElementById('errorText');
+          const backBtn = document.getElementById('backBtn');
+          const errorBackBtn = document.getElementById('errorBackBtn');
+          const waitlistForm = document.getElementById('waitlistForm');
 
-    <script>
-      // Configuration
-      const LOOPS_FORM_ID = 'cmgrgqh7e7xbx030in9jo5vx9';
-      const LOOPS_API_URL = `https://app.loops.so/api/newsletter-form/${LOOPS_FORM_ID}`;
+          // Radio controls
+          const emailRadio = document.getElementById('emailRadio');
+          const mobileRadio = document.getElementById('mobileRadio');
 
-      // State
-      let userType = 'Employer'; // 'Employer' or 'Tasker'
-      let isLoading = false;
-
-      // DOM Elements
-      const employerBtn = document.getElementById('employerBtn');
-      const taskerBtn = document.getElementById('taskerBtn');
-      const emailInput = document.getElementById('emailInput');
-      const phoneInput = document.getElementById('phoneInput');
-      const submitBtn = document.getElementById('submitBtn');
-      const formContainer = document.getElementById('formContainer');
-      const successMessage = document.getElementById('successMessage');
-      const errorMessage = document.getElementById('errorMessage');
-      const errorText = document.getElementById('errorText');
-      const backBtn = document.getElementById('backBtn');
-      const errorBackBtn = document.getElementById('errorBackBtn');
-      const waitlistForm = document.getElementById('waitlistForm');
-
-      // Radio controls
-      const emailRadio = document.getElementById('emailRadio');
-      const mobileRadio = document.getElementById('mobileRadio');
-
-      // Toggle Functions (Employer / Tasker) — only set userType now
-      function switchToEmployer() {
-        userType = 'Employer';
-        employerBtn.classList.add('active');
-        taskerBtn.classList.remove('active');
-        // If you want Employer to auto-select Email radio, uncomment:
-        // emailRadio.checked = true; emailRadio.dispatchEvent(new Event('change'));
-      }
-
-      function switchToTasker() {
-        userType = 'Tasker';
-        taskerBtn.classList.add('active');
-        employerBtn.classList.remove('active');
-        // If you want Tasker to auto-select Mobile radio, uncomment:
-        // mobileRadio.checked = true; mobileRadio.dispatchEvent(new Event('change'));
-      }
-
-      employerBtn.addEventListener('click', switchToEmployer);
-      taskerBtn.addEventListener('click', switchToTasker);
-
-      // Functions to show email or phone input and set placeholder
-      function showEmailInput() {
-        emailInput.classList.remove('hidden');
-        phoneInput.classList.add('hidden');
-        emailInput.placeholder = 'Enter your email to join waitlist';
-      }
-
-      function showPhoneInput() {
-        phoneInput.classList.remove('hidden');
-        emailInput.classList.add('hidden');
-        phoneInput.placeholder = 'Enter your 10-digit mobile number';
-      }
-
-      // Wire radios to control input + placeholder
-      emailRadio.addEventListener('change', () => {
-        if (emailRadio.checked) {
-          showEmailInput();
-          emailInput.value = '';
-          phoneInput.value = '';
-        }
-      });
-
-      mobileRadio.addEventListener('change', () => {
-        if (mobileRadio.checked) {
-          showPhoneInput();
-          emailInput.value = '';
-          phoneInput.value = '';
-        }
-      });
-
-      // initialize display: email selected by default
-      showEmailInput();
-
-      // Form Submission
-      async function handleSubmit(e) {
-        e.preventDefault();
-
-        if (isLoading) return;
-
-        // Validation based on radio selection (not employer/tasker toggle)
-        if (emailRadio.checked) {
-          if (!emailInput.value.trim()) {
-            showError('Please enter your email address');
-            return;
+          // Toggle Functions (Employer / Tasker) — only set userType now
+          function switchToEmployer() {
+            userType = 'Employer';
+            employerBtn.classList.add('active');
+            taskerBtn.classList.remove('active');
+            // If you want Employer to auto-select Email radio, uncomment:
+            // emailRadio.checked = true; emailRadio.dispatchEvent(new Event('change'));
           }
-          // basic email format check
-          // const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          // if (!emailRe.test(emailInput.value.trim())) {
-          //   showError('Please enter a valid email address');
-          //   return;
-          // }
-        } else {
-          const phone = phoneInput.value.trim();
-          if (!phone) {
-            showError('Please enter your phone number');
-            return;
+
+          function switchToTasker() {
+            userType = 'Tasker';
+            taskerBtn.classList.add('active');
+            employerBtn.classList.remove('active');
+            // If you want Tasker to auto-select Mobile radio, uncomment:
+            // mobileRadio.checked = true; mobileRadio.dispatchEvent(new Event('change'));
           }
-          if (!/^\d{10}$/.test(phone)) {
-            showError('Please enter a valid 10-digit phone number');
-            return;
+
+          employerBtn.addEventListener('click', switchToEmployer);
+          taskerBtn.addEventListener('click', switchToTasker);
+
+          // Functions to show email or phone input and set placeholder
+          function showEmailInput() {
+            emailInput.classList.remove('hidden');
+            phoneInput.classList.add('hidden');
+            emailInput.placeholder = 'Enter your email to join waitlist';
           }
-        }
 
-        isLoading = true;
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Please wait...';
+          function showPhoneInput() {
+            phoneInput.classList.remove('hidden');
+            emailInput.classList.add('hidden');
+            phoneInput.placeholder = 'Enter your 10-digit mobile number';
+          }
 
-        // Prepare form data
-        const userGroup = (userType === 'Employer') ? 'Employer' : 'Tasker';
-        let formBody = `userGroup=${encodeURIComponent(userGroup)}&mailingLists=`;
-
-        if (emailRadio.checked) {
-          formBody += `&email=${encodeURIComponent(emailInput.value.trim())}`;
-        } else {
-          const phone = phoneInput.value.trim();
-          formBody += `&email=${encodeURIComponent(phone + '@phone.placeholder')}`;
-          formBody += `&phoneNumber=${encodeURIComponent(phone)}`;
-        }
-
-        try {
-          const response = await fetch(LOOPS_API_URL, {
-            method: 'POST',
-            body: formBody,
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
+          // Wire radios to control input + placeholder
+          emailRadio.addEventListener('change', () => {
+            if (emailRadio.checked) {
+              showEmailInput();
+              emailInput.value = '';
+              phoneInput.value = '';
+            }
           });
 
-          if (response.ok) {
-            showSuccess();
-            emailInput.value = '';
-            phoneInput.value = '';
-          } else {
+          mobileRadio.addEventListener('change', () => {
+            if (mobileRadio.checked) {
+              showPhoneInput();
+              emailInput.value = '';
+              phoneInput.value = '';
+            }
+          });
+
+          // initialize display: email selected by default
+          showEmailInput();
+
+          // Form Submission
+          async function handleSubmit(e) {
+            e.preventDefault();
+
+            if (isLoading) return;
+
+            // Validation based on radio selection (not employer/tasker toggle)
+            if (emailRadio.checked) {
+              if (!emailInput.value.trim()) {
+                showError('Please enter your email address');
+                return;
+              }
+              // basic email format check
+              // const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              // if (!emailRe.test(emailInput.value.trim())) {
+              //   showError('Please enter a valid email address');
+              //   return;
+              // }
+            } else {
+              const phone = phoneInput.value.trim();
+              if (!phone) {
+                showError('Please enter your phone number');
+                return;
+              }
+              if (!/^\d{10}$/.test(phone)) {
+                showError('Please enter a valid 10-digit phone number');
+                return;
+              }
+            }
+
+            isLoading = true;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Please wait...';
+
+            // Prepare form data
+            const userGroup = (userType === 'Employer') ? 'Employer' : 'Tasker';
+            let formBody = `userGroup=${encodeURIComponent(userGroup)}&mailingLists=`;
+
+            if (emailRadio.checked) {
+              formBody += `&email=${encodeURIComponent(emailInput.value.trim())}`;
+            } else {
+              const phone = phoneInput.value.trim();
+              formBody += `&email=${encodeURIComponent(phone + '@phone.placeholder')}`;
+              formBody += `&phoneNumber=${encodeURIComponent(phone)}`;
+            }
+
             try {
-              const data = await response.json();
-              showError(data.message || response.statusText);
-            } catch (jsonError) {
-              showError(response.statusText || 'An error occurred');
+              const response = await fetch(LOOPS_API_URL, {
+                method: 'POST',
+                body: formBody,
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                },
+              });
+
+              if (response.ok) {
+                showSuccess();
+                emailInput.value = '';
+                phoneInput.value = '';
+              } else {
+                try {
+                  const data = await response.json();
+                  showError(data.message || response.statusText);
+                } catch (jsonError) {
+                  showError(response.statusText || 'An error occurred');
+                }
+              }
+            } catch (error) {
+              if (error.message === 'Failed to fetch') {
+                showError('Network error, please check your connection');
+              } else {
+                showError(error.message || 'An error occurred');
+              }
+            } finally {
+              isLoading = false;
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Join Waitlist';
             }
           }
-        } catch (error) {
-          if (error.message === 'Failed to fetch') {
-            showError('Network error, please check your connection');
-          } else {
-            showError(error.message || 'An error occurred');
+
+          function showSuccess() {
+            formContainer.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
           }
-        } finally {
-          isLoading = false;
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Join Waitlist';
-        }
-      }
 
-      function showSuccess() {
-        formContainer.classList.add('hidden');
-        successMessage.classList.remove('hidden');
-        errorMessage.classList.add('hidden');
-      }
+          function showError(message) {
+            errorText.textContent = message;
+            formContainer.classList.add('hidden');
+            errorMessage.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+          }
 
-      function showError(message) {
-        errorText.textContent = message;
-        formContainer.classList.add('hidden');
-        errorMessage.classList.remove('hidden');
-        successMessage.classList.add('hidden');
-      }
+          function resetForm() {
+            formContainer.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            errorText.textContent = 'Oops! Something went wrong, please try again';
+          }
 
-      function resetForm() {
-        formContainer.classList.remove('hidden');
-        successMessage.classList.add('hidden');
-        errorMessage.classList.add('hidden');
-        errorText.textContent = 'Oops! Something went wrong, please try again';
-      }
+          // Event Listeners
+          waitlistForm.addEventListener('submit', handleSubmit);
+          backBtn.addEventListener('click', resetForm);
+          errorBackBtn.addEventListener('click', resetForm);
+        </script>
 
-      // Event Listeners
-      waitlistForm.addEventListener('submit', handleSubmit);
-      backBtn.addEventListener('click', resetForm);
-      errorBackBtn.addEventListener('click', resetForm);
-    </script>
-
-  </section>
-</div>
+      </section>
+    </div>
 
 
 
@@ -485,46 +489,46 @@
         <h1 class="fifty-semi-bold">How frogr works</h1>
         <h1 class="twenty-four-medium">Get things done in just four easy steps.</h1>
       </div>
-<div class="subject-container">
-  <!-- Decorative curved/dotted line images (purely decorative) -->
-  <img class="steps-line line-one" src="./images/Section-four/line-one.svg" alt="" aria-hidden="true" />
-  <img class="steps-line line-two" src="./images/Section-four/line-two.svg" alt="" aria-hidden="true" />
-  <img class="steps-line line-three" src="./images/Section-four/line-three.svg" alt="" aria-hidden="true" />
+      <div class="subject-container">
+        <!-- Decorative curved/dotted line images (purely decorative) -->
+        <img class="steps-line line-one" src="./images/Section-four/line-one.svg" alt="" aria-hidden="true" />
+        <img class="steps-line line-two" src="./images/Section-four/line-two.svg" alt="" aria-hidden="true" />
+        <img class="steps-line line-three" src="./images/Section-four/line-three.svg" alt="" aria-hidden="true" />
 
-  <div class="text-container">
-    <div class="container-one">
-      <div class="image-container">
-        <img src="./images/Section-four/01.png" alt="">
-      </div>
+        <div class="text-container">
+          <div class="container-one">
+            <div class="image-container">
+              <img src="./images/Section-four/01.png" alt="">
+            </div>
 
-      <p class="twenty-medium">Browse</p>
-      <p class="twenty-regular">Find local gigs that match your skills.</p>
-    </div>
-    <div class="container-two">
-      <div class="image-container">
-        <img src="./images/Section-four/02.png" alt="">
-      </div>
+            <p class="twenty-medium">Browse</p>
+            <p class="twenty-regular">Find local gigs that match your skills.</p>
+          </div>
+          <div class="container-two">
+            <div class="image-container">
+              <img src="./images/Section-four/02.png" alt="">
+            </div>
 
-      <p class="twenty-medium">Bidding</p>
-      <p class="twenty-regular">Discuss and confirm requirements. </p>
-    </div>
-    <div class="container-three">
-      <div class="image-container">
-        <img src="./images/Section-four/03.png" alt="">
-      </div>
+            <p class="twenty-medium">Bidding</p>
+            <p class="twenty-regular">Discuss and confirm requirements. </p>
+          </div>
+          <div class="container-three">
+            <div class="image-container">
+              <img src="./images/Section-four/03.png" alt="">
+            </div>
 
-      <p class="twenty-medium">Book</p>
-      <p class="twenty-regular">Lock in time and payment terms. </p>
-    </div>
-    <div class="container-four">
-      <div class="image-container">
-        <img src="./images/Section-four/04.png" alt="">
+            <p class="twenty-medium">Book</p>
+            <p class="twenty-regular">Lock in time and payment terms. </p>
+          </div>
+          <div class="container-four">
+            <div class="image-container">
+              <img src="./images/Section-four/04.png" alt="">
+            </div>
+            <p class="twenty-medium">Earn</p>
+            <p class="twenty-regular">Complete the job, get instant secure payment.</p>
+          </div>
+        </div>
       </div>
-      <p class="twenty-medium">Earn</p>
-      <p class="twenty-regular">Complete the job, get instant secure payment.</p>
-    </div>
-  </div>
-</div>
 
     </section>
 
@@ -591,21 +595,45 @@
     </section>
 
 
-    <!-- SCROLLING 6-CARD AREA (yellow background) -->
+    <!-- SCROLLING 12-CARD AREA (yellow background) -->
     <section class="services-auto-section" aria-label="Auto scrolling services">
       <div class="services-auto-inner">
 
-        <!-- VIEWPORT showing two rows (3 cols each) -->
+        <!-- VIEWPORT showing two rows (3 cols each) at a time -->
         <div class="services-viewport" id="servicesViewport">
 
-          <!-- TRACK: two stacked grid-sets (first set + duplicate) -->
+          <!-- TRACK: contains original 12 cards + duplicate for seamless loop -->
           <div class="services-track" id="servicesTrack">
 
-            <!-- FIRST SET (6 cards: 3x2) -->
+            <!-- FIRST SET (12 cards: 3 columns × 4 rows) -->
             <div class="grid-set">
               <article class="card">
                 <div class="card-text">
-                  <h3>Farming &amp; Gardening</h3>
+                  <h3>Plumbing</h3>
+                  <p>Quick fixes and reliable solutions for all your water and pipe issues.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/plumbing.png" alt="Plumbing"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Electrical</h3>
+                  <p>Safe and professional handling of all electrical repairs and installations.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/electrical.png" alt="Electrical"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Carpentry</h3>
+                  <p>Custom woodwork, furniture repairs, and fittings made easy.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/carpentry.png" alt="Carpentry"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Farming & Gardening</h3>
                   <p>Beautifully designed and well-maintained green spaces.</p>
                 </div>
                 <div class="card-thumb"><img src="./images/Sectino-six/Farming-Gardening.png" alt="Farming"></div>
@@ -650,40 +678,13 @@
                 </div>
                 <div class="card-thumb"><img src="./images/Sectino-six/Dry-Cleaning.png" alt="Dry Cleaning"></div>
               </article>
-            </div>
-
-            <!-- DUPLICATE SET -->
-            <div class="grid-set" aria-hidden="true">
-              <article class="card">
-                <div class="card-text">
-                  <h3>Plumbing</h3>
-                  <p>Quick fixes and reliable solutions for all your water and pipe issues.</p>
-                </div>
-                <div class="card-thumb"><img src="./images/Sectino-six/plumbing.png" alt=""></div>
-              </article>
-
-              <article class="card">
-                <div class="card-text">
-                  <h3>Electrical</h3>
-                  <p>Safe and professional handling of all electrical repairs and installations</p>
-                </div>
-                <div class="card-thumb"><img src="./images/Sectino-six/electrical.png" alt=""></div>
-              </article>
-
-              <article class="card">
-                <div class="card-text">
-                  <h3>Carpentry</h3>
-                  <p>Custom woodwork, furniture repairs, and fittings made easy.</p>
-                </div>
-                <div class="card-thumb"><img src="./images/Sectino-six/carpentry.png" alt=""></div>
-              </article>
 
               <article class="card">
                 <div class="card-text">
                   <h3>Construction</h3>
                   <p>Strong, efficient, and quality building for any project size.</p>
                 </div>
-                <div class="card-thumb"><img src="./images/Sectino-six/construction.png" alt=""></div>
+                <div class="card-thumb"><img src="./images/Sectino-six/construction.png" alt="Construction"></div>
               </article>
 
               <article class="card">
@@ -691,7 +692,8 @@
                   <h3>Painting and Renovation</h3>
                   <p>Transform your space with fresh colors and expert upgrades.</p>
                 </div>
-                <div class="card-thumb"><img src="./images/Sectino-six/painting-and-renovation.png" alt=""></div>
+                <div class="card-thumb"><img src="./images/Sectino-six/painting-and-renovation.png" alt="Painting">
+                </div>
               </article>
 
               <article class="card">
@@ -699,30 +701,109 @@
                   <h3>Appliance Repair</h3>
                   <p>Fast fixes to keep your home appliances running smoothly.</p>
                 </div>
-                <div class="card-thumb"><img src="./images/Sectino-six/appliance-repair.png" alt=""></div>
+                <div class="card-thumb"><img src="./images/Sectino-six/appliance-repair.png" alt="Appliance Repair">
+                </div>
+              </article>
+            </div>
+
+            <!-- DUPLICATE SET (same 12 cards for seamless loop) -->
+            <div class="grid-set" aria-hidden="true">
+              <article class="card">
+                <div class="card-text">
+                  <h3>Plumbing</h3>
+                  <p>Quick fixes and reliable solutions for all your water and pipe issues.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/plumbing.png" alt="Plumbing"></div>
               </article>
 
               <article class="card">
                 <div class="card-text">
-                  <h3>Welding</h3>
-                  <p>Durable and precise welding services for all your needs.</p>
+                  <h3>Electrical</h3>
+                  <p>Safe and professional handling of all electrical repairs and installations.</p>
                 </div>
-                <div class="card-thumb"><img src="./images/Sectino-six/welding.png" alt=""></div>
+                <div class="card-thumb"><img src="./images/Sectino-six/electrical.png" alt="Electrical"></div>
               </article>
 
               <article class="card">
                 <div class="card-text">
-                  <h3>House Cleaning</h3>
-                  <p>Sparkling clean homes with hassle-free deep cleaning.</p>
+                  <h3>Carpentry</h3>
+                  <p>Custom woodwork, furniture repairs, and fittings made easy.</p>
                 </div>
-                <div class="card-thumb"><img src="./images/Sectino-six/house-cleaning.png" alt=""></div>
+                <div class="card-thumb"><img src="./images/Sectino-six/carpentry.png" alt="Carpentry"></div>
               </article>
+
               <article class="card">
                 <div class="card-text">
-                  <h3>Pest Control</h3>
-                  <p>Safe and effective treatments to keep pests away.</p>
+                  <h3>Farming & Gardening</h3>
+                  <p>Beautifully designed and well-maintained green spaces.</p>
                 </div>
-                <div class="card-thumb"><img src="./images/Sectino-six/pest-control.png" alt=""></div>
+                <div class="card-thumb"><img src="./images/Sectino-six/Farming-Gardening.png" alt="Farming"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Maid Services</h3>
+                  <p>Trusted help to manage your daily household chores.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/Maid-services.png" alt="Maid"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Babysitting</h3>
+                  <p>Caring and reliable sitters for your little ones.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/Babysitting.png" alt="Babysitting"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Elderly Care</h3>
+                  <p>Compassionate care and support for your loved ones.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/Elderly-Care.png" alt="Elderly Care"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Pet Care</h3>
+                  <p>Loving and responsible care for your furry friends.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/Pet-Care.png" alt="Pet Care"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Dry Cleaning</h3>
+                  <p>Fresh, clean, and perfectly pressed clothes.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/Dry-Cleaning.png" alt="Dry Cleaning"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Construction</h3>
+                  <p>Strong, efficient, and quality building for any project size.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/construction.png" alt="Construction"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Painting and Renovation</h3>
+                  <p>Transform your space with fresh colors and expert upgrades.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/painting-and-renovation.png" alt="Painting">
+                </div>
+              </article>
+
+              <article class="card">
+                <div class="card-text">
+                  <h3>Appliance Repair</h3>
+                  <p>Fast fixes to keep your home appliances running smoothly.</p>
+                </div>
+                <div class="card-thumb"><img src="./images/Sectino-six/appliance-repair.png" alt="Appliance Repair">
+                </div>
               </article>
             </div>
 
@@ -731,37 +812,52 @@
       </div>
     </section>
 
-    <!-- Small JS to randomize slow scrolling (slightly faster than before) -->
+    <!-- Vertical scrolling animation for service cards -->
     <script>
       (function () {
         const track = document.getElementById('servicesTrack');
+        const viewport = document.getElementById('servicesViewport');
+
+        // Check for reduced motion preference
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!track || prefersReduced) {
-          track.style.animation = 'none';
+
+        if (!track || !viewport || prefersReduced) {
+          if (track) track.style.animation = 'none';
           return;
         }
 
-        function rnd(min, max) { return Math.random() * (max - min) + min; }
+        // Set smooth duration for vertical scrolling (30-50 seconds for smooth effect)
+        let duration = 40; // Default 40 seconds
 
-        // Faster random very-slow duration: 30s - 70s (previously 40-90)
-        let duration = rnd(30, 70);
-        let reverse = Math.random() < 0.5;
-
-        function applyAnim(dur, rev) {
-          track.style.animation = `track-scroll ${dur}s linear infinite`;
-          track.style.animationDirection = rev ? 'reverse' : 'normal';
+        function applyAnimation(dur) {
+          track.style.animation = `track-scroll-vertical ${dur}s linear infinite`;
         }
-        applyAnim(duration, reverse);
 
-        // gently nudge speed/direction occasionally
-        setInterval(() => {
-          const change = rnd(-10, 10);
-          duration = Math.max(20, Math.min(100, duration + change));
-          if (Math.random() < 0.2) reverse = !reverse;
-          applyAnim(duration, reverse);
-        }, 8000 + Math.floor(Math.random() * 6000));
+        // Apply initial animation
+        applyAnimation(duration);
+
+        // Pause on hover for better user experience
+        viewport.addEventListener('mouseenter', () => {
+          track.style.animationPlayState = 'paused';
+        });
+
+        viewport.addEventListener('mouseleave', () => {
+          track.style.animationPlayState = 'running';
+        });
+
+        // Optional: Pause on touch devices when user touches the viewport
+        viewport.addEventListener('touchstart', () => {
+          track.style.animationPlayState = 'paused';
+        });
+
+        viewport.addEventListener('touchend', () => {
+          setTimeout(() => {
+            track.style.animationPlayState = 'running';
+          }, 1000);
+        });
       })();
     </script>
+
 
 
 
@@ -917,6 +1013,25 @@
               <h1 class="twenty-regular">Peace of mind — your transactions are protected every step of the way.</h1>
             </div>
           </div>
+          <div class="third">
+            <div class="icon">
+              <img src="./icons/response.svg" alt="">
+            </div>
+            <div class="text">
+              <!-- <h1 class="twenty-medium">Book</h1> -->
+              <h1 class="twenty-regular">Typical response within 24 hrs</h1>
+            </div>
+          </div>
+          <div class="third">
+            <div class="icon">
+              <img src="./icons/globe.svg" alt="">
+            </div>
+            <div class="text">
+              <!-- <h1 class="twenty-medium">Book</h1> -->
+              <h1 class="twenty-regular">Support in English, Hindi & Tamil</h1>
+            </div>
+          </div>
+          
           <!-- <div class="fourth">
                         <div class="icon">
                             <img src="./icons/earn.svg" alt="">
@@ -936,156 +1051,160 @@
     </section>
 
 
-   <!-- ✅ FAQ Section -->
-<section class="faq-section" aria-labelledby="faq-heading">
-  <div class="container">
-    <h2 id="faq-heading" class="faq-heading">Frequently Asked Questions</h2>
+    <!-- ✅ FAQ Section -->
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <div class="container">
+        <h2 id="faq-heading" class="faq-heading">Frequently Asked Questions</h2>
 
-    
-    <div class="accordion">
-      <details open>
-        <summary>
-          1. What kind of services can I book through your platform? What if my desired task is not mentioned in
-          the given categories?
-        </summary>
-        <div class="answer">
-          <p>
-            You can book a wide range of services including home cleaning, plumbing, electrical work, appliance
-            repair, carpentry, cooking, childcare, elderly care, pet care, and more. If your specific task isn’t
-            listed, you can submit a “custom request” — our team will connect you with the most suitable tasker
-            for the job!
-          </p>
-        </div>
-      </details>
-      
-      <details>
-        <summary>2. How do I know the taskers are trustworthy?</summary>
-        <div class="answer">
-          <p>All taskers undergo identity verification, background checks, and review-based ranking.</p>
-        </div>
-      </details>
-      
-      <details>
-        <summary>3. What if I don’t speak the same language as the tasker?</summary>
-        <div class="answer">
-          <p>We offer in-app translation and real-time AI language support to help communication.</p>
-        </div>
-      </details>
-      
-      <details>
-        <summary>4. Can I schedule tasks in advance?</summary>
-        <div class="answer">
-          <p>Yes — choose a date and time when you post your task or contact support for special arrangements.</p>
-        </div>
-      </details>
-      
-      <details>
-        <summary>5. Is frogr more expensive than hiring directly?</summary>
-        <div class="answer">
-          <p>We strive for fair pricing. Our platform adds verification, escrow, and support — you can compare
-            matched rates before booking.</p>
+
+        <div class="accordion">
+          <details open>
+            <summary>
+              1. What kind of services can I book through your platform? What if my desired task is not mentioned in
+              the given categories?
+            </summary>
+            <div class="answer">
+              <p>
+                You can book a wide range of services including home cleaning, plumbing, electrical work, appliance
+                repair, carpentry, cooking, childcare, elderly care, pet care, and more. If your specific task isn’t
+                listed, you can submit a “custom request” — our team will connect you with the most suitable tasker
+                for the job!
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>2. How do I know the taskers are trustworthy?</summary>
+            <div class="answer">
+              <p>All taskers undergo identity verification, background checks, and review-based ranking.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>3. What if I don’t speak the same language as the tasker?</summary>
+            <div class="answer">
+              <p>We offer in-app translation and real-time AI language support to help communication.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>4. Can I schedule tasks in advance?</summary>
+            <div class="answer">
+              <p>Yes — choose a date and time when you post your task or contact support for special arrangements.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>5. Is frogr more expensive than hiring directly?</summary>
+            <div class="answer">
+              <p>We strive for fair pricing. Our platform adds verification, escrow, and support — you can compare
+                matched rates before booking.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>6. How do payments work?</summary>
+            <div class="answer">
+              <p>Payments are held in escrow and released to the tasker only after you confirm completion.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>7. Steps to request a refund?</summary>
+            <div class="answer">
+              <p>To request a refund, please state the reason for cancellation and, if any issue occurred, submit a
+                complaint for review.</p>
+            </div>
+          </details>
+
+          <button class="faq-toggle-btn button-text primary-color" id="toggleAllFaqs">
+
+            <p class="btn-text eighteen-medium">Open All</p>
+
+          </button>
+
+          <div>
+            <p class="sixteen-medium" style="text-align: center;">Still have questions? Join now and chat with our onboarding team</p>
           </div>
-        </details>
-        
-        <details>
-          <summary>6. How do payments work?</summary>
-        <div class="answer">
-          <p>Payments are held in escrow and released to the tasker only after you confirm completion.</p>
+
+          <button class="button button-text primary-color">
+            <a href="#contactinput">
+              <p class="btn-text eighteen-medium">Join Waitlist</p>
+            </a>
+          </button>
+
+          <!-- ✨ Expand/Collapse All Button -->
+          <!-- <button class="faq-toggle-btn" id="toggleAllFaqs">Expand All</button> -->
         </div>
-      </details>
-      
-      <details>
-        <summary>7. Steps to request a refund?</summary>
-        <div class="answer">
-          <p>To request a refund, please state the reason for cancellation and, if any issue occurred, submit a
-            complaint for review.</p>
-        </div>
-      </details>
-      
-      <button class="faq-toggle-btn button-text primary-color" id="toggleAllFaqs">
-      
-          <p class="btn-text eighteen-medium">Open All</p>
-      
-      </button>
-
-      <button class="button button-text primary-color">
-        <a href="#contactinput">
-          <p class="btn-text eighteen-medium">Join the Waitlist</p>
-        </a>
-      </button>
-
-      <!-- ✨ Expand/Collapse All Button -->
-      <!-- <button class="faq-toggle-btn" id="toggleAllFaqs">Expand All</button> -->
-    </div>
-  </div>
-</section>
-
-<!-- ✅ JS: Expand/Collapse All -->
-<script>
-  const toggleAllBtn = document.getElementById('toggleAllFaqs');
-  const faqDetails = document.querySelectorAll('.accordion details');
-
-  toggleAllBtn.addEventListener('click', () => {
-    const allOpen = Array.from(faqDetails).every(d => d.open);
-    faqDetails.forEach(d => d.open = !allOpen);
-    toggleAllBtn.textContent = allOpen ? 'Opem All' : 'Close All';
-  });
-</script>
-
-
+      </div>
     </section>
 
-    <!-- ✅ Footer Section -->
-    <footer class="site-footer" aria-labelledby="footer-heading">
-      <div class="footer-container">
-        <div class="footer-brand">
-          <img src="./icons/white-logo.svg" alt="frogr logo" class="footer-logo" />
-          <div class="footer-languages">Data Secured • Government KYC Verified • Instant Payouts.</div>
-          <p class="footer-desc">
-            No Shift. No Boss. No Limit. <br>
-            Empowering people to work freely and get things done faster.<br />
-            From daily tasks to skilled projects — Frogr connects trusted workers with real opportunities.
-          </p>
-          <small class="copyright">© 2025 Metfrogr Technologies Pvt. Ltd. <br> Made with ❤️ in India</small>
-        </div>
-        <div class="footer-links">
-          <div class="col">
-            <h4><a href=""></a>About us</h4>
-            <ul>
-              <!-- in your footer -->
-              <li><a href="#" data-modal="privacy">Privacy policy</a></li>
-              <li><a href="#" data-modal="terms">Terms of service</a></li>
-            </ul>
-          </div>
-          <div class="col">
-            <h4>Help docs</h4>
-            <ul>
-              <li><a href="#section-four">Features</a></li>
-              <li><a href="#section-nine">Support</a></li>
-              <li><a href="#verified-taskers">Verification</a></li>
-            </ul>
-          </div>
-          <div class="col">
-            <h4>Stay connected</h4>
-            <div class="social">
-              <a class="icon" href="#" aria-label="Twitter">T</a>
-              <a class="icon" href="#" aria-label="Facebook">f</a>
-              <a class="icon" href="#" aria-label="Instagram">◉</a>
-              <a class="icon" href="#" aria-label="LinkedIn">in</a>
-            </div>
-          </div>
-        </div>
+    <!-- ✅ JS: Expand/Collapse All -->
+    <script>
+      const toggleAllBtn = document.getElementById('toggleAllFaqs');
+      const faqDetails = document.querySelectorAll('.accordion details');
+
+      toggleAllBtn.addEventListener('click', () => {
+        const allOpen = Array.from(faqDetails).every(d => d.open);
+        faqDetails.forEach(d => d.open = !allOpen);
+        toggleAllBtn.textContent = allOpen ? 'Open All' : 'Close All';
+      });
+    </script>
+
+
+  </section>
+
+  <!-- ✅ Footer Section -->
+  <footer class="site-footer" aria-labelledby="footer-heading">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="./icons/white-logo.svg" alt="frogr logo" class="footer-logo" />
+        <div class="footer-languages">Data Secured • Government KYC Verified • Instant Payouts.</div>
+        <p class="footer-desc">
+          No Shift. No Boss. No Limit. <br>
+          Empowering people to work freely and get things done faster.<br />
+          From daily tasks to skilled projects — Frogr connects trusted workers with real opportunities.
+        </p>
+        <small class="copyright">© 2025 Metfrogr Technologies Pvt. Ltd. <br> Made with ❤️ in India</small>
       </div>
-    </footer>
-    <!-- Modal overlay & container (hidden by default) -->
-    <div id="policyModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="modal-box" role="document" aria-labelledby="modalTitle">
-        <button class="modal-close" aria-label="Close modal">&times;</button>
-        <div id="modalContent" class="modal-content">
-          <!-- Content injected by JS -->
+      <div class="footer-links">
+        <div class="col">
+          <h4><a href=""></a>About us</h4>
+          <ul>
+            <!-- in your footer -->
+            <li><a href="#" data-modal="privacy">Privacy policy</a></li>
+            <li><a href="#" data-modal="terms">Terms of service</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Help docs</h4>
+          <ul>
+            <li><a href="#section-four">Features</a></li>
+            <li><a href="#section-nine">Support</a></li>
+            <li><a href="#verified-taskers">Verification</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Stay connected</h4>
+          <div class="social">
+            <a class="icon" href="#" aria-label="Twitter">T</a>
+            <a class="icon" href="#" aria-label="Facebook">f</a>
+            <a class="icon" href="#" aria-label="Instagram">◉</a>
+            <a class="icon" href="#" aria-label="LinkedIn">in</a>
+          </div>
         </div>
       </div>
     </div>
+  </footer>
+  <!-- Modal overlay & container (hidden by default) -->
+  <div id="policyModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box" role="document" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modalContent" class="modal-content">
+        <!-- Content injected by JS -->
+      </div>
+    </div>
+  </div>
 
 
 
@@ -1166,6 +1285,27 @@
       setTimeout(() => {
         thankyouPopup.classList.remove("active");
       }, 3000);
+    });
+
+
+    // Enhanced smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+
+        // Skip if href is just "#"
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
     });
   </script>
   <!-- registration js end -->
