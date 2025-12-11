@@ -2643,6 +2643,11 @@ body {
     align-items: center
 }
 
+.social img{
+    width: 20px;
+    height: 20px;
+}
+
 .icon {
     display: inline-flex;
     align-items: center;
@@ -3142,8 +3147,8 @@ body {
     }
 
     .footer-links {
-        justify-content: flex-start;
-        gap: 20px;
+        justify-content: space-between;
+        /* gap: 20px; */
         flex-wrap: wrap;
     }
 }
@@ -3151,6 +3156,9 @@ body {
 @media (max-width: 767px) {
     .site-footer {
         padding: 36px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .footer-container {
@@ -3159,7 +3167,8 @@ body {
     }
 
     .footer-links {
-        gap: 30px;
+        gap: 0px;
+        justify-content: space-between;
     }
 
     .footer-desc {

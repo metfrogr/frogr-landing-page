@@ -252,7 +252,7 @@
           const errorBackBtn = document.getElementById('errorBackBtn');
           const waitlistForm = document.getElementById('waitlistForm');
 
-          // Radio controls
+          // Radio controls 
           const emailRadio = document.getElementById('emailRadio');
           const mobileRadio = document.getElementById('mobileRadio');
 
@@ -345,7 +345,7 @@
 
             // Prepare form data
             const userGroup = (userType === 'Employer') ? 'Employer' : 'Tasker';
-            let formBody = `userGroup=${encodeURIComponent(userGroup)}&mailingLists=`;
+            let formBody = `userGroup=${encodeURIComponent(userGroup)}&mailingLists=&source=${encodeURIComponent('Landing page')}`;
 
             if (emailRadio.checked) {
               formBody += `&email=${encodeURIComponent(emailInput.value.trim())}`;
@@ -354,6 +354,8 @@
               formBody += `&email=${encodeURIComponent(phone + '@phone.placeholder')}`;
               formBody += `&phoneNumber=${encodeURIComponent(phone)}`;
             }
+
+            console.log('Submitting form with data:', formBody);
 
             try {
               const response = await fetch(LOOPS_API_URL, {
@@ -1165,7 +1167,7 @@
           Empowering people to work freely and get things done faster.<br />
           From daily tasks to skilled projects — Frogr connects trusted workers with real opportunities.
         </p>
-        <small class="copyright">© 2025 Metfrogr Technologies Pvt. Ltd. <br> Made with ❤️ in India</small>
+       
       </div>
       <div class="footer-links">
         <div class="col">
@@ -1187,14 +1189,19 @@
         <div class="col">
           <h4>Stay connected</h4>
           <div class="social">
-            <a class="icon" href="#" aria-label="Twitter">T</a>
-            <a class="icon" href="#" aria-label="Facebook">f</a>
-            <a class="icon" href="#" aria-label="Instagram">◉</a>
-            <a class="icon" href="#" aria-label="LinkedIn">in</a>
+            <a class="icon" href="https://x.com/frogr_in?s=20" target="_blank" aria-label="Twitter"><img src="./icons/twitter.png" alt=""></a>
+            <a class="icon" href="https://www.facebook.com/share/1An8N3JZfA/" target="_blank" aria-label="Facebook"><img src="./icons/facebook.png" alt=""></a>
+            <a class="icon" href="https://www.instagram.com/frogr.in?igsh=Y3l0dnI1MTVjeThz" target="_blank" aria-label="Instagram"><img src="./icons/instagram.png" alt="metfrogr"></a>
+            <a class="icon" href="https://www.linkedin.com/in/metfrogr-technologies-a15a13393?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn"><img src="./icons/linkedin.png" alt=""></a>
           </div>
         </div>
       </div>
     </div>
+     <div class="copyright" style="text-align: center;"> <small>
+      © 2025 Metfrogr Technologies Pvt. Ltd. Made with ❤️ in India
+     </small>
+
+     </div>
   </footer>
   <!-- Modal overlay & container (hidden by default) -->
   <div id="policyModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
