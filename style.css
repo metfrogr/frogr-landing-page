@@ -433,12 +433,12 @@ nav .button-container .two:hover {
 
 .section-one {
     width: 100%;
-    height: 686px;
+    height: 749px;
     display: flex;
     align-items: end;
     justify-content: center;
-    background-color: #FFD02D;
-    background-image: url("./images/Section-one/one.svg");
+    background-color: #fdcd2c;
+    background-image: url("./images/Section-one/banner.jpg");
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -449,7 +449,7 @@ nav .button-container .two:hover {
 
 @media (min-width: 1440px){
     .section-one{
-        height: 881px;
+        height: 991px;
     }
 }
 
@@ -2582,8 +2582,8 @@ body {
 /* small language tag */
 .footer-languages {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.06);
-    padding: 6px 10px;
+    /* background: rgba(255, 255, 255, 0.06); */
+    /* padding: 6px 10px; */
     border-radius: 16px;
     font-weight: 600;
     margin-bottom: 18px;
@@ -2843,8 +2843,8 @@ body {
 
 @media (max-width: 1118px) {
     .section-one {
-        height: 520px;
-        padding: 22px 16px;
+        height: 550px;
+        padding: 16px 16px;
         /* align-items: center; */
         /* background-image: url("./images/Section-one/tab.svg"); */
     }
@@ -3575,7 +3575,7 @@ body {
     }
 
     .section-one {
-        height: 252px;
+        height: 286px;
         /* background-image: url("./images/Section-one/mobile.svg"); */
     }
 
@@ -3602,10 +3602,10 @@ body {
 }
 
 @media (max-width: 420px) {
-    /* .section-one {
-        height: 430px;
-    background-image: url("./images/Section-one/380.svg");
-    } */
+    .section-one {
+        height: 250px;
+    /* background-image: url("./images/Section-one/380.svg"); */
+    }
 
     .section-one .field-container {
         width: auto;
