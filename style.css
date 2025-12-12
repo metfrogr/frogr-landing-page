@@ -1709,7 +1709,7 @@ nav .button-container .two:hover {
     text-align: start;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     justify-content: start;
     gap: 20px;
 }
@@ -1737,8 +1737,8 @@ nav .button-container .two:hover {
     height: auto;
     display: flex;
     text-align: start;
-    justify-content: start;
-    align-items: start;
+    justify-content: center;
+    align-items: center;
     padding-top: 8px;
 }
 
@@ -2366,8 +2366,8 @@ body {
     height: auto;
     display: flex;
     text-align: start;
-    justify-content: center;
-    align-items: start;
+    justify-content: end;
+    align-items: center;
     padding-top: 8px;
 }
 
@@ -2936,6 +2936,7 @@ body {
     .container-three {
         width: 100%;
         margin-bottom: 16px;
+        
     }
 }
 
@@ -2978,6 +2979,12 @@ body {
     .section-nine .right-container {
         width: 100%;
     }
+
+    .section-nine .left-container .container-one{
+        text-align: center;
+        align-items: center;
+    }
+
 }
 
 /* SERVICES SCROLLING AREA responsive */
@@ -3016,6 +3023,7 @@ body {
         grid-template-columns: 1fr;
         padding: 0 8px;
         gap: 12px;
+        place-items: center;
     }
 
     .services-viewport .card {
@@ -3042,6 +3050,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .section-five .left-container .container-one{
+        text-align: center;
+    }
+    
     .section-seven {
         flex-direction: column;
         gap: 30px;
@@ -3064,6 +3076,8 @@ body {
 
     .section-seven .right-container .container-one {
         gap: 10px;
+        align-items: center;
+        text-align: center  ;
     }
 }
 
