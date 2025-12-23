@@ -82,30 +82,268 @@
 
     <section class="section-one">
 
-      <div class="section-one-container">
-        <div class="field-container">
-          <p class="thirty-six-medium">
-            No Boss. No Shift. No Limit.
-          </p>
+          <div class="waitlist-container">
+            <!-- Toggle Switch -->
+            <div class="toggle-wrapper">
+              <div class="toggle-container">
+                <button type="button" class="toggle-btn active" id="employerBtn">
+                  Job Provider
+                </button>
+                <button type="button" class="toggle-btn" id="taskerBtn">
+                  Job Taker
+                </button>
+              </div>
+            </div>
+            <div class="radio-button">
+              <div class="radio-group" role="radiogroup" aria-label="Input type">
+                <label class="radio-label">
+                  <input type="radio" name="inputType" value="mobile" id="mobileRadio" checked/>
+                  <span class="radio-text">Mobile Number</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="inputType" value="email" id="emailRadio" />
+                  <span class="radio-text">Email ID</span>
+                </label>
+              </div>
+            </div>
+            <!-- Form -->
+            <div id="formContainer">
+              <form class="form-wrapper" id="waitlistForm">
+                <!-- Inline row: radio group + input + button -->
+                <div class="form-row">
+                  <!-- Radio Buttons (Email or Mobile) -->
+
+
+                  <!-- Email Input (shown by default) -->
+                  <input type="email" id="emailInput" class="form-input"
+                    placeholder="Enter your email to join waitlist" />
+
+                  <!-- Phone Input (hidden by default) -->
+                  <input type="tel" id="phoneInput" class="form-input hidden"
+                    placeholder="Enter your 10-digit mobile number" pattern="\d{10}" />
+
+                  <button type="submit" class="submit-btn" id="submitBtn">
+                    Join Waitlist
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="message hidden">
+              <p class="message-text success">Thanks! We'll be in touch!</p>
+              <button type="button" class="back-btn" id="backBtn">← Back</button>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="message hidden">
+              <p class="message-text error" id="errorText">Oops! Something went wrong, please try again</p>
+              <button type="button" class="back-btn" id="errorBackBtn">← Back</button>
+            </div>
+          </div>
+
+
+            <!-- <h1 class="eighteen-regular">
+                Over 100 early users already onboard secure your spot today.
+      </h1> -->
+
         </div>
 
-        <div class="field-container">
-          <button type="submit" class="submit-btn">
-            <a href="#contactinput">
-              <p>Join Frogr Now</p>
-            </a>
-          </button>
-        </div>
-      </div>
-      <!-- ✅ Thank You Popup (Hidden by default) -->
-      <!-- <div class="thankyou-popup" id="thankyouPopup">
-        <div class="thankyou-content">
-          <div class="thankyou-icon">
-            <i class="fa-solid fa-circle-check"></i>
-          </div>
-          <p class="thankyou-text">Thank you for joining the waitlist!</p>
-        </div>
-      </div> -->
+        <script>
+          // Configuration
+          const LOOPS_FORM_ID = 'cmgrgqh7e7xbx030in9jo5vx9';
+          const LOOPS_API_URL = `https://app.loops.so/api/newsletter-form/${LOOPS_FORM_ID}`;
+
+          // State
+          let userType = 'Employer'; // 'Employer' or 'Tasker'
+          let isLoading = false;
+
+          // DOM Elements
+          const employerBtn = document.getElementById('employerBtn');
+          const taskerBtn = document.getElementById('taskerBtn');
+          const emailInput = document.getElementById('emailInput');
+          const phoneInput = document.getElementById('phoneInput');
+          const submitBtn = document.getElementById('submitBtn');
+          const formContainer = document.getElementById('formContainer');
+          const successMessage = document.getElementById('successMessage');
+          const errorMessage = document.getElementById('errorMessage');
+          const errorText = document.getElementById('errorText');
+          const backBtn = document.getElementById('backBtn');
+          const errorBackBtn = document.getElementById('errorBackBtn');
+          const waitlistForm = document.getElementById('waitlistForm');
+
+          // Radio controls 
+          const emailRadio = document.getElementById('emailRadio');
+          const mobileRadio = document.getElementById('mobileRadio');
+
+          // Toggle Functions (Employer / Tasker) — only set userType now
+          function switchToEmployer() {
+            userType = 'Employer';
+            employerBtn.classList.add('active');
+            taskerBtn.classList.remove('active');
+            // If you want Employer to auto-select Email radio, uncomment:
+            // emailRadio.checked = true; emailRadio.dispatchEvent(new Event('change'));
+          }
+
+          function switchToTasker() {
+            userType = 'Tasker';
+            taskerBtn.classList.add('active');
+            employerBtn.classList.remove('active');
+            // If you want Tasker to auto-select Mobile radio, uncomment:
+            // mobileRadio.checked = true; mobileRadio.dispatchEvent(new Event('change'));
+          }
+
+          employerBtn.addEventListener('click', switchToEmployer);
+          taskerBtn.addEventListener('click', switchToTasker);
+
+          // Functions to show email or phone input and set placeholder
+          function showEmailInput() {
+            emailInput.classList.remove('hidden');
+            phoneInput.classList.add('hidden');
+            emailInput.placeholder = 'Enter your email to join waitlist';
+          }
+
+          function showPhoneInput() {
+            phoneInput.classList.remove('hidden');
+            emailInput.classList.add('hidden');
+            phoneInput.placeholder = 'Enter your 10-digit mobile number';
+          }
+
+          // Wire radios to control input + placeholder
+          emailRadio.addEventListener('change', () => {
+            if (emailRadio.checked) {
+              showEmailInput();
+              emailInput.value = '';
+              phoneInput.value = '';
+            }
+          });
+
+          mobileRadio.addEventListener('change', () => {
+            if (mobileRadio.checked) {
+              showPhoneInput();
+              emailInput.value = '';
+              phoneInput.value = '';
+            }
+          });
+
+          // initialize display
+          if (mobileRadio.checked) {
+            showPhoneInput();
+          } else {
+            showEmailInput();
+          }
+
+          // Form Submission
+          async function handleSubmit(e) {
+            e.preventDefault();
+
+            if (isLoading) return;
+
+            // Validation based on radio selection (not employer/tasker toggle)
+            if (emailRadio.checked) {
+              if (!emailInput.value.trim()) {
+                showError('Please enter your email address');
+                return;
+              }
+              // basic email format check
+              // const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              // if (!emailRe.test(emailInput.value.trim())) {
+              //   showError('Please enter a valid email address');
+              //   return;
+              // }
+            } else {
+              const phone = phoneInput.value.trim();
+              if (!phone) {
+                showError('Please enter your phone number');
+                return;
+              }
+              if (!/^\d{10}$/.test(phone)) {
+                showError('Please enter a valid 10-digit phone number');
+                return;
+              }
+            }
+
+            isLoading = true;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Please wait...';
+
+            // Prepare form data
+            const userGroup = (userType === 'Employer') ? 'Employer' : 'Tasker';
+            let formBody = `userGroup=${encodeURIComponent(userGroup)}&mailingLists=&source=${encodeURIComponent('Landing page')}`;
+
+            if (emailRadio.checked) {
+              formBody += `&email=${encodeURIComponent(emailInput.value.trim())}`;
+            } else {
+              const phone = phoneInput.value.trim();
+              formBody += `&email=${encodeURIComponent(phone + '@phone.placeholder')}`;
+              formBody += `&phoneNumber=${encodeURIComponent(phone)}`;
+            }
+
+            console.log('Submitting form with data:', formBody);
+
+            try {
+              const response = await fetch(LOOPS_API_URL, {
+                method: 'POST',
+                body: formBody,
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                },
+              });
+
+              if (response.ok) {
+                showSuccess();
+                emailInput.value = '';
+                phoneInput.value = '';
+              } else {
+                try {
+                  const data = await response.json();
+                  showError(data.message || response.statusText);
+                } catch (jsonError) {
+                  showError(response.statusText || 'An error occurred');
+                }
+              }
+            } catch (error) {
+              if (error.message === 'Failed to fetch') {
+                showError('Network error, please check your connection');
+              } else {
+                showError(error.message || 'An error occurred');
+              }
+            } finally {
+              isLoading = false;
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Join Waitlist';
+            }
+          }
+
+          function showSuccess() {
+            formContainer.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+          }
+
+          function showError(message) {
+            errorText.textContent = message;
+            formContainer.classList.add('hidden');
+            errorMessage.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+          }
+
+          function resetForm() {
+            formContainer.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            errorText.textContent = 'Oops! Something went wrong, please try again';
+          }
+
+          // Event Listeners
+          waitlistForm.addEventListener('submit', handleSubmit);
+          backBtn.addEventListener('click', resetForm);
+          errorBackBtn.addEventListener('click', resetForm);
+        </script>
+
+      </section>
+    </div>
+
 
     </section>
 
@@ -150,7 +388,7 @@
     </section>
 
     <!-- registration start  -->
-    <div class="registration-section" id="contactinput">
+    <div class="registration-section" id="contactinput" style="display: none;">
       <section class="toggle-section">
         <div class="field-container">
           <h1 class="thirty-two-semi-bold">
@@ -159,7 +397,7 @@
           <p>Be among the first to experience India’s gig jobs platform. Get early access and exclusive benefits when we
             launch.</p>
 
-          <div class="waitlist-container">
+          <!-- <div class="waitlist-container">
             <!-- Toggle Switch -->
             <div class="toggle-wrapper">
               <div class="toggle-container">
@@ -174,7 +412,7 @@
             <div class="radio-button">
               <div class="radio-group" role="radiogroup" aria-label="Input type">
                 <label class="radio-label">
-                  <input type="radio" name="inputType" value="email" id="emailRadio" checked />
+                  <input type="radio" name="inputType" value="email" id="emailRadio"  />
                   <span class="radio-text">Email ID</span>
                 </label>
                 <label class="radio-label">
@@ -217,7 +455,7 @@
               <p class="message-text error" id="errorText">Oops! Something went wrong, please try again</p>
               <button type="button" class="back-btn" id="errorBackBtn">← Back</button>
             </div>
-          </div>
+          </div> -->
 
           <p>
             Join India’s first instant gig jobs network. Over 100 early users already onboard secure your spot today.
@@ -306,8 +544,12 @@
             }
           });
 
-          // initialize display: email selected by default
-          showEmailInput();
+          // initialize display
+          if (mobileRadio.checked) {
+            showPhoneInput();
+          } else {
+            showEmailInput();
+          }
 
           // Form Submission
           async function handleSubmit(e) {
@@ -548,7 +790,7 @@
             </div>
             <div class="text">
               <!-- <h1 class="twenty-medium">Break language barriers with real-time AI support.</h1> -->
-              <h1 class="twenty-regular">Frogr AI breaks barriers — work anywhere, with anyone.</h1>
+              <h1 class="twenty-regular">Frogr AI breaks barriers work anywhere, with anyone.</h1>
             </div>
           </div>
           <div class="second">
@@ -994,7 +1236,7 @@
             </div>
             <div class="text">
               <!-- <h1 class="twenty-medium">Break language barriers with real-time AI support.</h1> -->
-              <h1 class="twenty-regular">24/7 dispute support — AI-assisted + human review.</h1>
+              <h1 class="twenty-regular">24/7 dispute support AI-assisted + human review.</h1>
             </div>
           </div>
           <div class="second">
@@ -1012,7 +1254,7 @@
             </div>
             <div class="text">
               <!-- <h1 class="twenty-medium">Book</h1> -->
-              <h1 class="twenty-regular">Peace of mind — your transactions are protected every step of the way.</h1>
+              <h1 class="twenty-regular">Peace of mind your transactions are protected every step of the way.</h1>
             </div>
           </div>
           <div class="third">
@@ -1069,7 +1311,7 @@
               <p>
                 You can book a wide range of services including home cleaning, plumbing, electrical work, appliance
                 repair, carpentry, cooking, childcare, elderly care, pet care, and more. If your specific job isn’t
-                listed, you can submit a “custom request” — our team will connect you with the most suitable job taker
+                listed, you can submit a “custom request” our team will connect you with the most suitable job taker
                 for the job!
               </p>
             </div>
@@ -1085,14 +1327,14 @@
           <details>
             <summary>3. What if I don’t speak the same language as the job taker?</summary>
             <div class="answer">
-              <p>We offer in-app translation and real-time AI language support to help communication.</p>
+              <p>We offer in-app translation and real time AI language support to help communication.</p>
             </div>
           </details>
 
           <details>
             <summary>4. Can I schedule jobs in advance?</summary>
             <div class="answer">
-              <p>Yes — choose a date and time when you post your job or contact support for special arrangements.</p>
+              <p>Yes choose a date and time when you post your job or contact support for special arrangements.</p>
             </div>
           </details>
 
@@ -1165,7 +1407,7 @@
         <p class="footer-desc">
           No Shift. No Boss. No Limit. <br>
           Empowering people to work freely and get things done faster.<br />
-          From daily jobs to skilled projects — Frogr connects trusted workers with real opportunities.
+          From daily jobs to skilled projects Frogr connects trusted workers with real opportunities.
         </p>
        
       </div>
