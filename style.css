@@ -438,7 +438,7 @@ nav .button-container .two:hover {
     align-items: end;
     justify-content: center;
     background-color: #fdcd2c;
-    background-image: url("./images/Section-one/banner.jpg");
+    background-image: url("./images/Section-one/banner.png");
     background-size: contain;
     background-position: top;
     background-repeat: no-repeat;
@@ -1304,6 +1304,179 @@ nav .button-container .two:hover {
 
 
 /* section three end */
+
+
+/* whatsapp community section start */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+.whatsapp-community-section {
+    /* min-height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 35px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.community-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.community-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-icon {
+    margin-bottom: 25px;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-icon img,
+.whatsapp-icon svg {
+    display: block;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.community-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f1f1f;
+    margin-bottom: 15px;
+}
+
+.community-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.join-button {
+    display: inline-block;
+    background: #020202;
+    color: #FFD02D;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    /* box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); */
+}
+
+.join-button:hover {
+    transform: translateY(-2px);
+}
+
+.join-button:active {
+    transform: translateY(0);
+}
+
+/* Tablet Responsive */
+@media (max-width: 768px) {
+    .community-card {
+        padding: 40px 30px;
+    }
+    
+    .community-title {
+        font-size: 24px;
+    }
+    
+    .community-description {
+        font-size: 15px;
+    }
+    
+    .join-button {
+        padding: 14px 35px;
+        font-size: 16px;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .whatsapp-community-section {
+        padding: 15px;
+    }
+    
+    .community-card {
+        padding: 35px 25px;
+        border-radius: 15px;
+    }
+    
+    .whatsapp-icon svg,
+    .whatsapp-icon img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .community-title {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+    
+    .community-description {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+    
+    .join-button {
+        padding: 14px 30px;
+        font-size: 16px;
+        width: 100%;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+    .community-card {
+        padding: 30px 20px;
+    }
+    
+    .community-title {
+        font-size: 20px;
+    }
+    
+    .community-description {
+        font-size: 13px;
+    }
+}
+
+
+
+/* whatsapp community section end */
 
 /* registration start */
 /* --- Section Background --- */
@@ -2848,7 +3021,7 @@ body {
         height: 610px;
         padding: 16px 16px;
         /* align-items: center; */
-        background-image: url("./images/Section-one/banner-tab.jpg");
+        background-image: url("./images/Section-one/banner-tab.png");
     }
 
     .section-one .submit-btn {
@@ -2863,7 +3036,7 @@ body {
         height: 530px;
         padding: 16px 16px;
         /* align-items: center; */
-        background-image: url("./images/Section-one/banner-tab.jpg");
+        background-image: url("./images/Section-one/banner-tab.png");
     }
 
 }
@@ -3604,7 +3777,7 @@ body {
 
     .section-one {
         height: 466px;
-        background-image: url("./images/Section-one/banner-mobile.jpg");
+        background-image: url("./images/Section-one/banner-mobile.png");
     }
 
     /* .section-one .field-container p{
