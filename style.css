@@ -1197,28 +1197,22 @@ nav .button-container .two:hover {
 /* section two  end */
 
 /* section three start */
-
 /* ---------- Section Layout ---------- */
 .section-three {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding: 40px 16px; */
-    padding-left: 7%;
-    padding-right: 7%;
+    padding: 40px 7%;
     box-sizing: border-box;
 }
 
 /* Background image container */
 .section-three .banner-container {
     width: 100%;
-    /* max-width: 1240px; */
-    height: 220px;
-    /* desktop height */
+    min-height: 220px;
     border-radius: 20px;
     background-image: url("./images/Section-three/desktop.png");
-    /* desktop background */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1226,9 +1220,9 @@ nav .button-container .two:hover {
     align-items: center;
     justify-content: center;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    /* padding: 40px 60px; */
     box-sizing: border-box;
     text-align: center;
+    padding: 30px;
 }
 
 /* Text container */
@@ -1238,25 +1232,24 @@ nav .button-container .two:hover {
     flex-direction: column;
     gap: 20px;
     color: #000;
-    /* text color placeholder */
 }
 
 /* ---------- Tablet (≤ 768px) ---------- */
 @media (max-width: 768px) {
     .section-three .banner-container {
-        height: 230px;
+        min-height: 230px;
+        height: auto;
         background-image: url("./images/Section-three/tablet.png");
-        /* tablet background */
-        padding: 17px 15px;
+        padding: 24px 20px;
         text-align: start;
-        justify-content: start;
+        justify-content: flex-start;
+        align-items: center;
     }
 
     .section-three .banner-text {
         max-width: 70%;
     }
 
-    /* font sizes adjust */
     .fifty-semibold {
         font-size: 36px;
     }
@@ -1270,30 +1263,50 @@ nav .button-container .two:hover {
     }
 }
 
+/* ---------- Mobile Yellow Card (≤ 480px) ---------- */
+@media (max-width: 480px) {
+    .section-three {
+        padding: 40px 5%;
+    }
 
-/* ---------- Mobile (≤ 425px) ---------- */
-@media (max-width: 425px) {
     .section-three .banner-container {
+        min-height: 200px;
         height: auto;
-        /* background-image: url("./images/Section-three/mobile.png"); */
-        padding: 20px 18px;
-        /* justify-content: center; */
-        /* text-align: center; */
+        background-image: url("./images/Section-three/mobile.png");
+        background-color: #FFD02C;
+        background-size: auto 80%;
+        background-position: right -5px bottom;
+        background-repeat: no-repeat;
+        padding: 28px 24px;
+        text-align: left;
+        justify-content: flex-start;
+        align-items: flex-start;
     }
 
     .section-three .banner-text {
-        width: 80%;
-        /* align-items: center; */
-        max-width: 90%;
+        max-width: 58%;
+        gap: 14px;
     }
 
-    /* responsive font adjustments */
+    .section-three .banner-text h2 {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    .section-three .banner-text p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+    }
+
     .fifty-semibold {
         font-size: 26px;
     }
 
     .twenty-six-medium {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .twenty-two-regular {
@@ -1301,7 +1314,68 @@ nav .button-container .two:hover {
     }
 }
 
+/* ---------- Small Mobile (≤ 375px) ---------- */
+@media (max-width: 375px) {
+    .section-three .banner-container {
+        min-height: 180px;
+        height: auto;
+        background-size: auto 75%;
+        background-position: right -10px bottom;
+        padding: 24px 20px;
+    }
 
+    .section-three .banner-text {
+        max-width: 60%;
+    }
+
+    .section-three .banner-text h2 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .section-three .banner-text p {
+        font-size: 13px;
+    }
+
+    .fifty-semibold {
+        font-size: 24px;
+    }
+
+    .twenty-six-medium {
+        font-size: 13px;
+    }
+}
+
+/* ---------- Extra Small Mobile (≤ 320px) ---------- */
+@media (max-width: 320px) {
+    .section-three .banner-container {
+        min-height: 160px;
+        height: auto;
+        background-size: auto 70%;
+        background-position: right -15px bottom;
+        padding: 20px 18px;
+    }
+
+    .section-three .banner-text {
+        max-width: 62%;
+    }
+
+    .section-three .banner-text h2 {
+        font-size: 22px;
+    }
+
+    .section-three .banner-text p {
+        font-size: 12px;
+    }
+
+    .fifty-semibold {
+        font-size: 22px;
+    }
+
+    .twenty-six-medium {
+        font-size: 12px;
+    }
+}
 
 /* section three end */
 
