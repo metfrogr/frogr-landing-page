@@ -80,268 +80,340 @@
       </nav>
     </header>
 
-    <section class="section-one">
-
-          <div class="waitlist-container">
-            <!-- Toggle Switch -->
-            <div class="toggle-wrapper">
-              <div class="toggle-container">
-                <button type="button" class="toggle-btn active" id="employerBtn">
-                  Job Provider
-                </button>
-                <button type="button" class="toggle-btn" id="taskerBtn">
-                  Job Taker
-                </button>
-              </div>
-            </div>
-            <div class="radio-button">
-              <div class="radio-group" role="radiogroup" aria-label="Input type">
-                <label class="radio-label">
-                  <input type="radio" name="inputType" value="mobile" id="mobileRadio" checked/>
-                  <span class="radio-text">Mobile Number</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="inputType" value="email" id="emailRadio" />
-                  <span class="radio-text">Email ID</span>
-                </label>
-              </div>
-            </div>
-            <!-- Form -->
-            <div id="formContainer">
-              <form class="form-wrapper" id="waitlistForm">
-                <!-- Inline row: radio group + input + button -->
-                <div class="form-row">
-                  <!-- Radio Buttons (Email or Mobile) -->
-
-
-                  <!-- Email Input (shown by default) -->
-                  <input type="email" id="emailInput" class="form-input"
-                    placeholder="Enter your email to join waitlist" />
-
-                  <!-- Phone Input (hidden by default) -->
-                  <input type="tel" id="phoneInput" class="form-input hidden"
-                    placeholder="Enter your 10-digit mobile number" pattern="\d{10}" />
-
-                  <button type="submit" class="submit-btn" id="submitBtn">
-                    Join Waitlist
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            <!-- Success Message -->
-            <div id="successMessage" class="message hidden">
-              <p class="message-text success">Thanks! We'll be in touch!</p>
-              <button type="button" class="back-btn" id="backBtn">← Back</button>
-            </div>
-
-            <!-- Error Message -->
-            <div id="errorMessage" class="message hidden">
-              <p class="message-text error" id="errorText">Oops! Something went wrong, please try again</p>
-              <button type="button" class="back-btn" id="errorBackBtn">← Back</button>
-            </div>
-          </div>
-
-
-            <!-- <h1 class="eighteen-regular">
-                Over 100 early users already onboard secure your spot today.
-      </h1> -->
-
+<section class="section-one">
+  <div class="waitlist-container">
+    <!-- Header -->
+    <h2 class="form-heading">Enter your details</h2>
+    
+    <!-- Form -->
+    <div id="formContainer">
+      <form class="form-wrapper" id="waitlistForm">
+        <!-- Radio Buttons for User Type -->
+        <div class="radio-group" role="radiogroup" aria-label="User type">
+          <label class="radio-label">
+            <input type="radio" name="userType" value="Employer" id="employerRadio" checked/>
+            <span class="radio-text">Job Provider</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="userType" value="Tasker" id="taskerRadio" />
+            <span class="radio-text">Job Taker</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="userType" value="Contractor" id="contractorRadio" />
+            <span class="radio-text">Contractor</span>
+          </label>
         </div>
 
-        <script>
-          // Configuration
-          const LOOPS_FORM_ID = 'cmgrgqh7e7xbx030in9jo5vx9';
-          const LOOPS_API_URL = `https://app.loops.so/api/newsletter-form/${LOOPS_FORM_ID}`;
+        <!-- Mobile Number Input -->
+        <div class="form-row">
+          <input 
+            type="tel" 
+            id="phoneInput" 
+            class="form-input"
+            placeholder="Enter your 10-digit mobile number" 
+            pattern="\d{10}"
+            maxlength="10"
+            inputmode="numeric"
+            required
+          />
+          <button type="submit" class="submit-btn" id="submitBtn">
+            Join Waitlist
+          </button>
+        </div>
+      </form>
+    </div>
 
-          // State
-          let userType = 'Employer'; // 'Employer' or 'Tasker'
-          let isLoading = false;
+    <!-- Success Message -->
+    <div id="successMessage" class="message hidden">
+      <p class="message-text success">Thanks! We'll be in touch!</p>
+      <button type="button" class="back-btn" id="backBtn">← Back</button>
+    </div>
 
-          // DOM Elements
-          const employerBtn = document.getElementById('employerBtn');
-          const taskerBtn = document.getElementById('taskerBtn');
-          const emailInput = document.getElementById('emailInput');
-          const phoneInput = document.getElementById('phoneInput');
-          const submitBtn = document.getElementById('submitBtn');
-          const formContainer = document.getElementById('formContainer');
-          const successMessage = document.getElementById('successMessage');
-          const errorMessage = document.getElementById('errorMessage');
-          const errorText = document.getElementById('errorText');
-          const backBtn = document.getElementById('backBtn');
-          const errorBackBtn = document.getElementById('errorBackBtn');
-          const waitlistForm = document.getElementById('waitlistForm');
+    <!-- Error Message -->
+    <div id="errorMessage" class="message hidden">
+      <p class="message-text error" id="errorText">Oops! Something went wrong, please try again</p>
+      <button type="button" class="back-btn" id="errorBackBtn">← Back</button>
+    </div>
+  </div>
+</section>
 
-          // Radio controls 
-          const emailRadio = document.getElementById('emailRadio');
-          const mobileRadio = document.getElementById('mobileRadio');
+<script>
+  // Configuration
+  const LOOPS_FORM_ID = 'cmgrgqh7e7xbx030in9jo5vx9';
+  const LOOPS_API_URL = `https://app.loops.so/api/newsletter-form/${LOOPS_FORM_ID}`;
 
-          // Toggle Functions (Employer / Tasker) — only set userType now
-          function switchToEmployer() {
-            userType = 'Employer';
-            employerBtn.classList.add('active');
-            taskerBtn.classList.remove('active');
-            // If you want Employer to auto-select Email radio, uncomment:
-            // emailRadio.checked = true; emailRadio.dispatchEvent(new Event('change'));
-          }
+  // State
+  let isLoading = false;
 
-          function switchToTasker() {
-            userType = 'Tasker';
-            taskerBtn.classList.add('active');
-            employerBtn.classList.remove('active');
-            // If you want Tasker to auto-select Mobile radio, uncomment:
-            // mobileRadio.checked = true; mobileRadio.dispatchEvent(new Event('change'));
-          }
+  // DOM Elements
+  const phoneInput = document.getElementById('phoneInput');
+  const submitBtn = document.getElementById('submitBtn');
+  const formContainer = document.getElementById('formContainer');
+  const successMessage = document.getElementById('successMessage');
+  const errorMessage = document.getElementById('errorMessage');
+  const errorText = document.getElementById('errorText');
+  const backBtn = document.getElementById('backBtn');
+  const errorBackBtn = document.getElementById('errorBackBtn');
+  const waitlistForm = document.getElementById('waitlistForm');
 
-          employerBtn.addEventListener('click', switchToEmployer);
-          taskerBtn.addEventListener('click', switchToTasker);
+  // Radio buttons
+  const employerRadio = document.getElementById('employerRadio');
+  const taskerRadio = document.getElementById('taskerRadio');
+  const contractorRadio = document.getElementById('contractorRadio');
 
-          // Functions to show email or phone input and set placeholder
-          function showEmailInput() {
-            emailInput.classList.remove('hidden');
-            phoneInput.classList.add('hidden');
-            emailInput.placeholder = 'Enter your email to join waitlist';
-          }
+  // Restrict input to numbers only and limit to 10 digits
+  phoneInput.addEventListener('input', function(e) {
+    // Remove any non-numeric characters
+    this.value = this.value.replace(/[^0-9]/g, '');
+    
+    // Limit to 10 digits
+    if (this.value.length > 10) {
+      this.value = this.value.slice(0, 10);
+    }
+  });
 
-          function showPhoneInput() {
-            phoneInput.classList.remove('hidden');
-            emailInput.classList.add('hidden');
-            phoneInput.placeholder = 'Enter your 10-digit mobile number';
-          }
+  // Prevent non-numeric key presses
+  phoneInput.addEventListener('keypress', function(e) {
+    // Allow only numbers (0-9)
+    if (e.key < '0' || e.key > '9') {
+      // Allow special keys like backspace, delete, arrows, tab
+      if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(e.key)) {
+        e.preventDefault();
+      }
+    }
+  });
 
-          // Wire radios to control input + placeholder
-          emailRadio.addEventListener('change', () => {
-            if (emailRadio.checked) {
-              showEmailInput();
-              emailInput.value = '';
-              phoneInput.value = '';
-            }
-          });
+  // Prevent paste of non-numeric content
+  phoneInput.addEventListener('paste', function(e) {
+    e.preventDefault();
+    const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+    const numericOnly = pastedText.replace(/[^0-9]/g, '').slice(0, 10);
+    this.value = numericOnly;
+  });
 
-          mobileRadio.addEventListener('change', () => {
-            if (mobileRadio.checked) {
-              showPhoneInput();
-              emailInput.value = '';
-              phoneInput.value = '';
-            }
-          });
+  // Form Submission
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-          // initialize display
-          if (mobileRadio.checked) {
-            showPhoneInput();
-          } else {
-            showEmailInput();
-          }
+    if (isLoading) return;
 
-          // Form Submission
-          async function handleSubmit(e) {
-            e.preventDefault();
+    // Validation
+    const phone = phoneInput.value.trim();
+    if (!phone) {
+      showError('Please enter your phone number');
+      return;
+    }
+    if (!/^\d{10}$/.test(phone)) {
+      showError('Please enter a valid 10-digit phone number');
+      return;
+    }
 
-            if (isLoading) return;
+    // Get selected user type
+    let userGroup = 'Employer'; // default
+    if (taskerRadio.checked) {
+      userGroup = 'Tasker';
+    } else if (contractorRadio.checked) {
+      userGroup = 'Contractor';
+    } else if (employerRadio.checked) {
+      userGroup = 'Employer';
+    }
 
-            // Validation based on radio selection (not employer/tasker toggle)
-            if (emailRadio.checked) {
-              if (!emailInput.value.trim()) {
-                showError('Please enter your email address');
-                return;
-              }
-              // basic email format check
-              // const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-              // if (!emailRe.test(emailInput.value.trim())) {
-              //   showError('Please enter a valid email address');
-              //   return;
-              // }
-            } else {
-              const phone = phoneInput.value.trim();
-              if (!phone) {
-                showError('Please enter your phone number');
-                return;
-              }
-              if (!/^\d{10}$/.test(phone)) {
-                showError('Please enter a valid 10-digit phone number');
-                return;
-              }
-            }
+    isLoading = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Please wait...';
 
-            isLoading = true;
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Please wait...';
+    // Prepare form data with phone number suffix for Loops compatibility
+    let formBody = `userGroup=${encodeURIComponent(userGroup)}&mailingLists=&source=${encodeURIComponent('Landing page')}`;
+    formBody += `&email=${encodeURIComponent(phone + '@phone.placeholder')}`;
+    formBody += `&phoneNumber=${encodeURIComponent(phone)}`;
 
-            // Prepare form data
-            const userGroup = (userType === 'Employer') ? 'Employer' : 'Tasker';
-            let formBody = `userGroup=${encodeURIComponent(userGroup)}&mailingLists=&source=${encodeURIComponent('Landing page')}`;
+    console.log('Submitting form with data:', formBody);
 
-            if (emailRadio.checked) {
-              formBody += `&email=${encodeURIComponent(emailInput.value.trim())}`;
-            } else {
-              const phone = phoneInput.value.trim();
-              formBody += `&email=${encodeURIComponent(phone + '@phone.placeholder')}`;
-              formBody += `&phoneNumber=${encodeURIComponent(phone)}`;
-            }
+    try {
+      const response = await fetch(LOOPS_API_URL, {
+        method: 'POST',
+        body: formBody,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
 
-            console.log('Submitting form with data:', formBody);
+      if (response.ok) {
+        showSuccess();
+        phoneInput.value = '';
+        // Reset to default selection
+        employerRadio.checked = true;
+      } else {
+        try {
+          const data = await response.json();
+          showError(data.message || response.statusText);
+        } catch (jsonError) {
+          showError(response.statusText || 'An error occurred');
+        }
+      }
+    } catch (error) {
+      if (error.message === 'Failed to fetch') {
+        showError('Network error, please check your connection');
+      } else {
+        showError(error.message || 'An error occurred');
+      }
+    } finally {
+      isLoading = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join Waitlist';
+    }
+  }
 
-            try {
-              const response = await fetch(LOOPS_API_URL, {
-                method: 'POST',
-                body: formBody,
-                headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded',
-                },
-              });
+  function showSuccess() {
+    formContainer.classList.add('hidden');
+    successMessage.classList.remove('hidden');
+    errorMessage.classList.add('hidden');
+  }
 
-              if (response.ok) {
-                showSuccess();
-                emailInput.value = '';
-                phoneInput.value = '';
-              } else {
-                try {
-                  const data = await response.json();
-                  showError(data.message || response.statusText);
-                } catch (jsonError) {
-                  showError(response.statusText || 'An error occurred');
-                }
-              }
-            } catch (error) {
-              if (error.message === 'Failed to fetch') {
-                showError('Network error, please check your connection');
-              } else {
-                showError(error.message || 'An error occurred');
-              }
-            } finally {
-              isLoading = false;
-              submitBtn.disabled = false;
-              submitBtn.textContent = 'Join Waitlist';
-            }
-          }
+  function showError(message) {
+    errorText.textContent = message;
+    formContainer.classList.add('hidden');
+    errorMessage.classList.remove('hidden');
+    successMessage.classList.add('hidden');
+  }
 
-          function showSuccess() {
-            formContainer.classList.add('hidden');
-            successMessage.classList.remove('hidden');
-            errorMessage.classList.add('hidden');
-          }
+  function resetForm() {
+    formContainer.classList.remove('hidden');
+    successMessage.classList.add('hidden');
+    errorMessage.classList.add('hidden');
+    errorText.textContent = 'Oops! Something went wrong, please try again';
+  }
 
-          function showError(message) {
-            errorText.textContent = message;
-            formContainer.classList.add('hidden');
-            errorMessage.classList.remove('hidden');
-            successMessage.classList.add('hidden');
-          }
+  // Event Listeners
+  waitlistForm.addEventListener('submit', handleSubmit);
+  backBtn.addEventListener('click', resetForm);
+  errorBackBtn.addEventListener('click', resetForm);
+</script>
 
-          function resetForm() {
-            formContainer.classList.remove('hidden');
-            successMessage.classList.add('hidden');
-            errorMessage.classList.add('hidden');
-            errorText.textContent = 'Oops! Something went wrong, please try again';
-          }
 
-          // Event Listeners
-          waitlistForm.addEventListener('submit', handleSubmit);
-          backBtn.addEventListener('click', resetForm);
-          errorBackBtn.addEventListener('click', resetForm);
-        </script>
+<script>
+  // Configuration
+  const LOOPS_FORM_ID = 'cmgrgqh7e7xbx030in9jo5vx9';
+  const LOOPS_API_URL = `https://app.loops.so/api/newsletter-form/${LOOPS_FORM_ID}`;
 
-      </section>
+  // State
+  let isLoading = false;
+
+  // DOM Elements
+  const phoneInput = document.getElementById('phoneInput');
+  const submitBtn = document.getElementById('submitBtn');
+  const formContainer = document.getElementById('formContainer');
+  const successMessage = document.getElementById('successMessage');
+  const errorMessage = document.getElementById('errorMessage');
+  const errorText = document.getElementById('errorText');
+  const backBtn = document.getElementById('backBtn');
+  const errorBackBtn = document.getElementById('errorBackBtn');
+  const waitlistForm = document.getElementById('waitlistForm');
+
+  // Radio buttons
+  const employerRadio = document.getElementById('employerRadio');
+  const taskerRadio = document.getElementById('taskerRadio');
+  const contractorRadio = document.getElementById('contractorRadio');
+
+  // Form Submission
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (isLoading) return;
+
+    // Validation
+    const phone = phoneInput.value.trim();
+    if (!phone) {
+      showError('Please enter your phone number');
+      return;
+    }
+    if (!/^\d{10}$/.test(phone)) {
+      showError('Please enter a valid 10-digit phone number');
+      return;
+    }
+
+    // Get selected user type
+    let userGroup = 'Employer'; // default
+    if (taskerRadio.checked) {
+      userGroup = 'Tasker';
+    } else if (contractorRadio.checked) {
+      userGroup = 'Contractor';
+    } else if (employerRadio.checked) {
+      userGroup = 'Employer';
+    }
+
+    isLoading = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Please wait...';
+
+    // Prepare form data with phone number suffix for Loops compatibility
+    let formBody = `userGroup=${encodeURIComponent(userGroup)}&mailingLists=&source=${encodeURIComponent('Landing page')}`;
+    formBody += `&email=${encodeURIComponent(phone + '@phone.placeholder')}`;
+    formBody += `&phoneNumber=${encodeURIComponent(phone)}`;
+
+    console.log('Submitting form with data:', formBody);
+
+    try {
+      const response = await fetch(LOOPS_API_URL, {
+        method: 'POST',
+        body: formBody,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+
+      if (response.ok) {
+        showSuccess();
+        phoneInput.value = '';
+        // Reset to default selection
+        employerRadio.checked = true;
+      } else {
+        try {
+          const data = await response.json();
+          showError(data.message || response.statusText);
+        } catch (jsonError) {
+          showError(response.statusText || 'An error occurred');
+        }
+      }
+    } catch (error) {
+      if (error.message === 'Failed to fetch') {
+        showError('Network error, please check your connection');
+      } else {
+        showError(error.message || 'An error occurred');
+      }
+    } finally {
+      isLoading = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join Waitlist';
+    }
+  }
+
+  function showSuccess() {
+    formContainer.classList.add('hidden');
+    successMessage.classList.remove('hidden');
+    errorMessage.classList.add('hidden');
+  }
+
+  function showError(message) {
+    errorText.textContent = message;
+    formContainer.classList.add('hidden');
+    errorMessage.classList.remove('hidden');
+    successMessage.classList.add('hidden');
+  }
+
+  function resetForm() {
+    formContainer.classList.remove('hidden');
+    successMessage.classList.add('hidden');
+    errorMessage.classList.add('hidden');
+    errorText.textContent = 'Oops! Something went wrong, please try again';
+  }
+
+  // Event Listeners
+  waitlistForm.addEventListener('submit', handleSubmit);
+  backBtn.addEventListener('click', resetForm);
+  errorBackBtn.addEventListener('click', resetForm);
+</script>
+
     </div>
 
 
