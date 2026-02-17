@@ -104,8 +104,8 @@
           </label>
         </div>
 
-        <!-- Mobile Number Input -->
-        <div class="form-row">
+        <!-- Mobile Number Input with Error -->
+        <div class="form-input-container">
           <input 
             type="tel" 
             id="phoneInput" 
@@ -116,10 +116,21 @@
             inputmode="numeric"
             required
           />
-          <button type="submit" class="submit-btn" id="submitBtn">
-            Join Waitlist
-          </button>
+          <!-- Validation Error Message (directly attached to input) -->
+          <div id="validationError" class="validation-error hidden">
+            <svg class="error-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="#E53E3E" stroke-width="2" fill="none"/>
+              <path d="M10 6V11" stroke="#E53E3E" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="10" cy="14" r="1" fill="#E53E3E"/>
+            </svg>
+            <p class="validation-error-text" id="validationErrorText"></p>
+          </div>
         </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Join Waitlist
+        </button>
       </form>
     </div>
 
@@ -136,6 +147,276 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* Form input container */
+  .form-input-container {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  /* Validation error styling - attached directly to input */
+  .validation-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 0;
+  }
+
+  /* Error icon */
+  .error-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  .validation-error-text {
+    margin: 0;
+    color: #E53E3E;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  /* Input error state - red border */
+  .form-input.error {
+    border-color: #E53E3E !important;
+    border-width: 2px !important;
+  }
+</style>
+
+<script>
+  // Configuration
+  const LOOPS_FORM_ID = 'cmgrgqh7e7xbx030in9jo5vx9';
+  const LOOPS_API_URL = `https://app.loops.so/api/newsletter-form/${LOOPS_FORM_ID}`;
+
+  // State
+  let isLoading = false;
+
+  // DOM Elements
+  const phoneInput = document.getElementById('phoneInput');
+  const submitBtn = document.getElementById('submitBtn');
+  const formContainer = document.getElementById('formContainer');
+  const successMessage = document.getElementById('successMessage');
+  const errorMessage = document.getElementById('errorMessage');
+  const errorText = document.getElementById('errorText');
+  const validationError = document.getElementById('validationError');
+  const validationErrorText = document.getElementById('validationErrorText');
+  const backBtn = document.getElementById('backBtn');
+  const errorBackBtn = document.getElementById('errorBackBtn');
+  const waitlistForm = document.getElementById('waitlistForm');
+
+  // Radio buttons
+  const employerRadio = document.getElementById('employerRadio');
+  const taskerRadio = document.getElementById('taskerRadio');
+  const contractorRadio = document.getElementById('contractorRadio');
+
+  // Restrict input to numbers only and limit to 10 digits
+  phoneInput.addEventListener('input', function(e) {
+    // Remove any non-numeric characters
+    this.value = this.value.replace(/[^0-9]/g, '');
+    
+    // Limit to 10 digits
+    if (this.value.length > 10) {
+      this.value = this.value.slice(0, 10);
+    }
+
+    // Clear validation error when user types
+    hideValidationError();
+  });
+
+  // Prevent non-numeric key presses
+  phoneInput.addEventListener('keypress', function(e) {
+    // Allow only numbers (0-9)
+    if (e.key < '0' || e.key > '9') {
+      // Allow special keys like backspace, delete, arrows, tab
+      if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(e.key)) {
+        e.preventDefault();
+      }
+    }
+  });
+
+  // Prevent paste of non-numeric content
+  phoneInput.addEventListener('paste', function(e) {
+    e.preventDefault();
+    const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+    const numericOnly = pastedText.replace(/[^0-9]/g, '').slice(0, 10);
+    this.value = numericOnly;
+  });
+
+  // Comprehensive Indian Mobile Number Validation
+  function validateIndianMobile(phone) {
+    // Remove any spaces or special characters
+    const cleaned = phone.replace(/\D/g, '');
+    
+    // Check if exactly 10 digits
+    if (cleaned.length !== 10) {
+      return { valid: false, message: 'Mobile number must be exactly 10 digits' };
+    }
+    
+    // Check if starts with 6, 7, 8, or 9
+    if (!/^[6-9]/.test(cleaned)) {
+      return { valid: false, message: 'Mobile number must start with 6, 7, 8, or 9' };
+    }
+    
+    // Block sequential numbers (ascending/descending)
+    const sequential = ['0123456789', '1234567890', '9876543210', '0987654321'];
+    if (sequential.includes(cleaned)) {
+      return { valid: false, message: 'Please enter a valid mobile number' };
+    }
+    
+    // Block all same digits (e.g., 9999999999)
+    if (/^(\d)\1{9}$/.test(cleaned)) {
+      return { valid: false, message: 'Please enter a valid mobile number' };
+    }
+    
+    // Block excessive repetition patterns (e.g., 9898989898, 7070707070)
+    if (/^(\d{2})\1{4}$/.test(cleaned)) {
+      return { valid: false, message: 'Please enter a valid mobile number' };
+    }
+    
+    // Block commercial/promotional series (140, 160)
+    if (cleaned.startsWith('140') || cleaned.startsWith('160')) {
+      return { valid: false, message: 'Commercial numbers are not allowed' };
+    }
+    
+    return { valid: true, message: 'Valid number' };
+  }
+
+  // Show validation error inline
+  function showValidationError(message) {
+    validationErrorText.textContent = message;
+    validationError.classList.remove('hidden');
+    phoneInput.classList.add('error');
+  }
+
+  // Hide validation error
+  function hideValidationError() {
+    validationError.classList.add('hidden');
+    phoneInput.classList.remove('error');
+  }
+
+  // Form Submission with Enhanced Validation
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (isLoading) return;
+
+    // Hide any previous validation errors
+    hideValidationError();
+
+    // Get phone number
+    const phone = phoneInput.value.trim();
+    
+    // Basic check
+    if (!phone) {
+      showValidationError('Please enter your mobile number');
+      return;
+    }
+
+    // Comprehensive validation
+    const validation = validateIndianMobile(phone);
+    if (!validation.valid) {
+      showValidationError(validation.message);
+      return;
+    }
+
+    // Get selected user type
+    let userGroup = 'Employer'; // default
+    if (taskerRadio.checked) {
+      userGroup = 'Tasker';
+    } else if (contractorRadio.checked) {
+      userGroup = 'Contractor';
+    } else if (employerRadio.checked) {
+      userGroup = 'Employer';
+    }
+
+    isLoading = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Please wait...';
+
+    // Prepare form data with phone number suffix for Loops compatibility
+    let formBody = `userGroup=${encodeURIComponent(userGroup)}&mailingLists=&source=${encodeURIComponent('Landing page')}`;
+    formBody += `&email=${encodeURIComponent(phone + '@phone.placeholder')}`;
+    formBody += `&phoneNumber=${encodeURIComponent(phone)}`;
+
+    console.log('Submitting form with data:', formBody);
+
+    try {
+      const response = await fetch(LOOPS_API_URL, {
+        method: 'POST',
+        body: formBody,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+
+      if (response.ok) {
+        showSuccess();
+        phoneInput.value = '';
+        hideValidationError();
+        // Reset to default selection
+        employerRadio.checked = true;
+      } else {
+        try {
+          const data = await response.json();
+          
+          // Check if it's a duplicate entry error
+          if (data.message && data.message.toLowerCase().includes('already')) {
+            showValidationError('This mobile number is already registered');
+          } else {
+            showError(data.message || response.statusText);
+          }
+        } catch (jsonError) {
+          showError(response.statusText || 'An error occurred');
+        }
+      }
+    } catch (error) {
+      if (error.message === 'Failed to fetch') {
+        showError('Network error, please check your connection');
+      } else {
+        showError(error.message || 'An error occurred');
+      }
+    } finally {
+      isLoading = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join Waitlist';
+    }
+  }
+
+  function showSuccess() {
+    formContainer.classList.add('hidden');
+    successMessage.classList.remove('hidden');
+    errorMessage.classList.add('hidden');
+  }
+
+  function showError(message) {
+    errorText.textContent = message;
+    formContainer.classList.add('hidden');
+    errorMessage.classList.remove('hidden');
+    successMessage.classList.add('hidden');
+  }
+
+  function resetForm() {
+    formContainer.classList.remove('hidden');
+    successMessage.classList.add('hidden');
+    errorMessage.classList.add('hidden');
+    hideValidationError();
+    errorText.textContent = 'Oops! Something went wrong, please try again';
+  }
+
+  // Event Listeners
+  waitlistForm.addEventListener('submit', handleSubmit);
+  backBtn.addEventListener('click', resetForm);
+  errorBackBtn.addEventListener('click', resetForm);
+</script>
+
 
 <script>
   // Configuration
